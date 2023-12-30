@@ -1,0 +1,17 @@
+We have the following columns in the table :
+
+-> Batsman_Name
+-> Batsman_Order (1,2,3, etc)
+-> Player_Type (Batsman, Bowler, All Rounder, etc)
+-> Runs_Scored (Total runs scored till date)
+-> Debut_Year 
+-> City (Example Virat Kohli belongs to Delhi)
+
+Example -> 
+* Operation to read the entire table
+* Operation on the specific player data and we can update the score of the particular player.
+* Operation to calculate the total score of the particular player.
+* Operation to check the particular player exists in the list or not with the exists operator.
+* Operation on the player to check the player score is present or not with the null operator.
+* Operation to compare the value of all the playyers score with the help of all operator.
+ 

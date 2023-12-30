@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leader Board</title>
+    <style>
+        .main{
+            width: 40%;
+            height:700px;
+            margin: auto;
+        }
+        .main>div:nth-child(1){
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            height: 100px;
+        }
+        .main>div:nth-child(1)>div{
+            width: 30%;
+            height: 100%;
+            border: 2px solid teal;
+        }
+        .main>div:nth-child(1)>div:nth-child(1){
+            font-size: 20px;
+            text-align: center;
+            background-color: red;
+            border: 2px solid black;
+        }
+
+        .main>div:nth-child(1)>div:nth-child(2){
+            text-align: center;
+            font-size: 20px;
+            background-color: green;
+            border: 2px solid black;
+        }
+
+        .main>div:nth-child(2){
+            margin: auto;
+            width: 80%;
+            display: flex;
+            justify-content: space-between;
+            font-size: 30px;
+            
+        }
+
+        .main>div:nth-child(3){
+            width: 20%;
+            margin: auto;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .main>div:nth-child(4){
+            padding: 20px;
+            width: 80%;
+            height: 120px;
+            border: 2px solid black;
+            background-color: #6b7280;
+            margin: auto;
+            margin-top: 30px;
+            text-align: center;
+            font-size: 30px;
+        }
+        .main>div:nth-child(5){
+            width: 50%;
+            row-gap: 10px;
+            column-gap: 10px;
+            margin: auto;
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            height: 270px;
+        }
+
+        .main>div:nth-child(5)>div:nth-child(2){
+            background-color: #ff6600;
+        }
+
+        .main>div:nth-child(5)>div:nth-child(5){
+            background-color: #ff6600;
+        }
+        .main>div:nth-child(5)>div:nth-child(6){
+            background-color: #ff6600;
+        }
+        .main>div:nth-child(5)>div:nth-child(8){
+            background-color: #ff6600;
+        }
+
+        .main>div:nth-child(5)>div:nth-child(10){
+            background-color: purple;
+            grid-column-start: 2;
+            grid-column-end: 3;
+        }
+        .main>div:nth-child(5)>div{
+            padding: 15px;
+            text-align: center;
+            font-size: 20px;
+            background-color: #668100;
+            border: 2px solid black;
+        }
+        .main>div:nth-child(6){
+            margin: auto;
+            background-color: black;
+            color: white;
+            height: 60px;
+            margin-top: 10px;
+            width: 60%;
+        }
+        .main button{
+            grid-column-start: 1;
+            grid-column-end: 4;
+            margin: auto;
+            padding: 10px 100px;
+            background-color: black;
+            color: white;
+            font-size: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div>
+            <div><h1>50</h1></div>
+            <div><h1>100</h1></div>
+        </div>
+        <div>
+            <div id="min">Min</div>
+            <div id="max">Max</div>
+        </div>
+        <div>SCORE</div>
+        <div id="display"><h1>#</h1></div>
+        <div id="btn">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+            <div>7</div>
+            <div>8</div>
+            <div>9</div>
+            <div>0</div>
+            <button>ENTER</button>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    let num = document.querySelectorAll("#btn>div");
+
+    let min = +document.querySelector("#min").innerText;
+    let max = +document.querySelector("#max").innerText;
+    num.forEach((item)=>{
+        item.addEventListener('click', Calculate);
+    })
+
+    let bag = "";
+    function Calculate(event){
+        let score = event.target.innerText;
+        if (score === "ENTER"){
+            let bagUpdated = Number(bag);
+            if(bagUpdated > max){
+                document.querySelector("#max").innerText=bagUpdated;
+                bag = "";
+                document.querySelector("#display").innerText=bag;
+            } else if(bagUpdated < min){
+                document.querySelector("#min").innerText=bagUpdated;
+                bag = "";
+                document.querySelector("#display").innerText=bag;
+            }
+        } else{
+            bag += score;
+            document.querySelector("#display").innerText=bag;
+        }
+        
+    }
+
+</script>

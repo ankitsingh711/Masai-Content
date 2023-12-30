@@ -1,0 +1,56 @@
+body{
+    margin: 0px;
+    padding:0px;
+}
+
+#nav{
+    width:100%;
+    margin: auto;
+    text-align: center;
+    justify-content: space-evenly;
+    display: flex;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+a{
+    margin-right: 50px;
+    text-decoration: none;
+    color: red;
+    font-size: 20px;
+    margin-top: 30px;
+}
+
+#create{
+    width: 25%;
+    font-size: 20px;
+    padding:10px;
+    margin: auto;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin-top: 15px;
+}
+
+table{
+    width: 90%;
+    margin: auto;
+    margin-top: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+thead{
+    background-color: yellow;
+    font-size: 25px;
+}
+tbody{
+    text-align: center;
+    font-size: 20px;
+}
+tbody>tr:nth-child(even){
+    background-color: yellow;
+}
+
+#filter{
+    margin-left: 600px;
+    margin-top: 20px;
+    font-size: 20px;
+    margin-bottom: 90px;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Create Form</title>
+    <style>
+      /* Write all necessery css here  */
+      .container{
+        width: 100%;
+        margin-top: 50px;
+        display: flex;
+        justify-content: space-evenly;
+        text-align: center;
+        font-size: 20px;
+      }
+
+      input{
+        width: 100%;
+      }
+      .container>div:nth-child(1){
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        padding: 20px;
+      }
+
+      .container>div:nth-child(2){
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        padding: 20px;
+      }
+
+      #submit{
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <h1>Signup Form</h1>
+        <!-- Create the Signup form here  -->
+        <input type="text" placeholder="Name"><br><br>
+        <input type="email" placeholder="Email Address"><br><br>
+        <input type="text" placeholder="Country"><br><br>
+        <input type="number" placeholder="Phone"><br><br>
+        <input type="password" placeholder="Password"><br><br>
+        <input id="submit" type="submit" value="Create Acoount">
+    </div>
+    <div>
+      <h1>Signin Form</h1>
+      <!-- Create the Signin Form Here  -->
+      <input type="text" placeholder="Name"><br><br>
+      <input type="email" placeholder="Email Address"><br><br>
+      <input type="password" placeholder="Password"><br><br>
+      <input id="submit" type="submit" value="Sigin">
+    </div>
+    </div>
+  </body>
+</html>

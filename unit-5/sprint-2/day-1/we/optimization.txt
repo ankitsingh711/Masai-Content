@@ -1,0 +1,31 @@
+Database Optimization: 
+
+Performance of DB depends on ?
+
+1. Query
+2. Amount of data 
+
+What database consists of ?
+-  Disk --> HDD/SSD
+- IO Per Secon 
+- Ram is 20-25 times faster than Disk.
+- Ram is a volatile memory.
+
+Servers --> Many servers uses SSD as it much faster than HDD.
+
+db.users.aggregate([{$sort: {age:1}}]);
+
+This data gets into ram and in the ram it gets sorted and then it will give you the result.
+
+SSD is faster as compare to HDD. 
+
+latency --> the less it is, the better its is 
+bandwith --> the more it is, the better it is 
+
+Where our DB is?
+1. in the US
+1. in the mumbai
+
+Indexing ?
+ is one of the classed in this week 
+

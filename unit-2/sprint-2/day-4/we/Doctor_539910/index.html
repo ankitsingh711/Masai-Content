@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #header{
+        text-align: center;
+        width:40%;
+        margin: auto;
+      }
+      #doctors{
+        width: 90%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        column-gap: 15px;
+        text-align: center;
+        padding-bottom: 2%;
+      }
+      #doctors img{
+        width: 100%;
+      }
+
+      #doctors>div>div{
+        display: flex;
+        justify-content: space-around ;
+        margin-bottom: 20px;
+      }
+
+      #doctors>div>div>button:nth-child(1){
+        color: #37a1ff;
+        border: none;
+        padding: 7px 15px;
+        border-radius: 10px;
+      }
+      #doctors>div>div>button:nth-child(2){
+        background-color: #ff7458;
+        color:white;
+        border: none;
+        padding: 7px 15px;
+        border-radius: 10px;
+      }
+      #doctors>div:nth-child(1){
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      }
+
+      #doctors>div:nth-child(2){
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      }
+
+      #doctors>div:nth-child(3){
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      }
+
+      #doctors>div:nth-child(4){
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      }
+
+      #service{
+        width: 90%;
+        margin: auto;
+        margin-top: 40px;
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        text-align: center;
+        column-gap: 15px;
+      }
+
+      @media screen and (min-width:601px) and (max-width:1000px){
+        #doctors{
+          grid-template-columns: repeat(2,1fr);
+          row-gap: 20px;
+        }
+
+        #service{
+          grid-template-columns: repeat(2,1fr);
+        }
+      }
+
+      @media screen and (min-width:100px) and (max-width:600px){
+        #doctors{
+          grid-template-columns: repeat(1,1fr);
+          row-gap: 20px;
+        }
+
+        #service{
+          grid-template-columns: repeat(1,1fr);
+        }
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div id="header">
+      <h1>Our Specialist</h1>
+      <p>
+        Green above he cattle god saw day multiply under fill in the cattle fowl
+        a all, living, tree word link available in the service for subdue fruit.
+      </p>
+    </div>
+    <!-- Top-section -->
+    <div id="doctors">
+      <div>
+        <img src="https://preview.colorlib.com/theme/medino/assets/images/doctor1.jpg.webp" alt="image">
+        <h2>John Lewis</h2>
+        <h6>Sr. Doctor </h6>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere, vitae!</p>
+        <div>
+          <button>Know More</button>
+          <button>Book Now</button>
+        </div>
+      </div>
+      <div>
+        <img src="https://preview.colorlib.com/theme/medino/assets/images/doctor1.jpg.webp" alt="image">
+        <h2>John Lewis</h2>
+        <h6>Sr. Doctor </h6>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere, vitae!</p>
+        <div>
+          <button>Know More</button>
+          <button>Book Now</button>
+        </div>
+      </div>
+      <div>
+        <img src="https://preview.colorlib.com/theme/medino/assets/images/doctor1.jpg.webp" alt="image">
+        <h2>John Lewis</h2>
+        <h6>Sr. Doctor </h6>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere, vitae!</p>
+        <div>
+          <button>Know More</button>
+          <button>Book Now</button>
+        </div>
+      </div>
+      <div>
+        <img src="https://preview.colorlib.com/theme/medino/assets/images/doctor1.jpg.webp" alt="image">
+        <h2>John Lewis</h2>
+        <h6>Sr. Doctor </h6>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere, vitae!</p>
+        <div>
+          <button>Know More</button>
+          <button>Book Now</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom section  -->
+    <div id="service">
+      <div>
+        <img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-04-16/bottom_132437.jpeg" alt="logo">
+        <h3>Teeth Whitening</h3>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet quidem velit obcaecati voluptatibus.</p>
+      </div>
+      <div>
+        <img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-04-16/bottom_132437.jpeg" alt="logo">
+        <h3>Teeth Whitening</h3>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet quidem velit obcaecati voluptatibus.</p>
+      </div>
+      <div>
+        <img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-04-16/bottom_132437.jpeg" alt="logo">
+        <h3>Teeth Whitening</h3>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet quidem velit obcaecati voluptatibus.</p>
+      </div>
+      <div>
+        <img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-04-16/bottom_132437.jpeg" alt="logo">
+        <h3>Teeth Whitening</h3>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet quidem velit obcaecati voluptatibus.</p>
+      </div>
+      <div>
+        <img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-04-16/bottom_132437.jpeg" alt="logo">
+        <h3>Teeth Whitening</h3>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet quidem velit obcaecati voluptatibus.</p>
+      </div>
+      <div>
+        <img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-04-16/bottom_132437.jpeg" alt="logo">
+        <h3>Teeth Whitening</h3>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet quidem velit obcaecati voluptatibus.</p>
+      </div>
+    </div>
+  </body>
+</html>

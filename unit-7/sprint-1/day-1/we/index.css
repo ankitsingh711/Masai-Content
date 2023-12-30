@@ -1,0 +1,21 @@
+*
+{
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+}
+
+.nav-bar{
+    width: 100%;
+    border: 2px solid black;
+}
+
+.nav-bar 
+
+.nav-bar ul{
+    float: right;
+}
+
+.nav-bar ul>li{
+    display: inline;
+}

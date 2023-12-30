@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Calculator</title>
+    <style>
+        body{
+            text-align: center;
+        }
+
+        input{
+            margin-top: 10px;
+            font-size: 20px;
+        }
+        button{
+            font-size: 20px;
+        }
+        h1{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Masai Calculator</h1>
+    <input type="number" id="firstValue" placeholder="Enter First Number">
+    <input type="number" id="secondValue" placeholder="Enter Second Number">
+    <br><br>
+    <button onclick="add()">Add +</button>
+    <button onclick="sub()">Subtract -</button>
+    <button onclick="divide()">Divide /</button>
+    <button onclick="multi()">Multiply *</button>
+    <h1 id="total"></h1>
+</body>
+</html>
+
+<script>
+    function add(a,b){
+        console.log("calling")
+        a = Number(document.getElementById("firstValue").value);
+        b = Number(document.getElementById("secondValue").value);
+        let sum = a + b;
+        document.getElementById("total").innerText = "Sum of the numbers is:----->" + sum ;
+        alert("Answer is:"+sum);
+    }
+
+    let sub = (a,b) => {
+        a = Number(document.getElementById('firstValue').value);
+        b = Number(document.getElementById('secondValue').value);
+        let subtract = (a-b);
+        document.getElementById("total").innerText = "Subtraction of the numbers is:---->" + subtract ;
+        alert("Answer is:"+subtract);
+    }
+
+    let divide = (a,b) => {
+        a = Number(document.getElementById('firstValue').value);
+        b = Number(document.getElementById('secondValue').value);
+        let division = (a/b);
+        document.getElementById("total").innerText = "Divison of the numbers is:------>" + division ;
+        alert("Answer is:"+division);
+    }
+
+    let multi = (a,b) => {
+        a = Number(document.getElementById('firstValue').value);
+        b = Number(document.getElementById('secondValue').value);
+        let multiply = (a*b);
+        document.getElementById("total").innerText = "Multiplication of the numbers is:------>" + multiply ;
+        alert("Answer is:"+multiply);
+    }
+</script>

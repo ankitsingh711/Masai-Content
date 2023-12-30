@@ -1,0 +1,4 @@
+1.Use the $lookup operator to perform a join on the first and second collections, so that the resulting documents contain both the personal information from the first collection and the zip code information from the second collection?
+
+==> db.sample.aggregate([{$lookup:{from:"zip",localField:"address",foreignField:"address",as:"data"}},{$addFields:{"zipcode":{"$arrayElemAt":["$data.zipcode",0]}}},{$project:{"data":0}},{$lookup:{from:"city",localField:"zipcode",foreignField:"zipcode",as:"citydata"}},{$addFields:{"state":{"$arrayElemAt":["$citydata.state",0]}}},{$project:{"citydata":0}},{$lookup:{from:"country",localField:"state",foreignField:"state",as:"countrydata"}},{$addFields:{"country":{"$arrayElemAt":["$countrydata.country",0]}}},{$project:{"countrydata":0}}])
+

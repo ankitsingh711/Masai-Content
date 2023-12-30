@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Periodic table</title>
+
+    <style type="text/css">
+        #main{
+            width:100%;
+            height:auto;
+            display: flex;
+            background-color: whitesmoke;
+            justify-content: space-evenly;
+        }
+        .class1 {
+            width:80%;
+            height:50px;
+            border:2px solid black;
+            margin: auto;
+            background-color: green;
+            margin-top: 10%;
+        }
+        #hydrogen{
+            background-color: brown;
+        }
+        #id2  {
+            width: 15%;
+            height:auto;
+            margin-top: 100px;
+            display: flex;
+        }
+        #col-1{
+            width: 30%;
+            height:100%;
+            text-align: center;
+        }
+        #col-2{
+            width:30%;
+            height:100%;
+            text-align: center;
+            margin-top: 60px;
+        }
+        #col-3{
+            width:30%;
+            height:100%;
+            text-align: center;
+            margin-top: 300px;
+        }
+        span{
+            color:white;
+            font-size: 30px;
+        }
+        .class2{
+            background-color: #ff5555;
+            border: 2px solid black;
+            width: 80%;
+            margin-top: 10%;
+            height: 50px;
+        }
+        .class3{
+            background-color: pink;
+            border: 2px solid black;
+            width: 80%;
+            margin-top: 10%;
+            height: 50px;
+        }
+        h1{
+            text-align: center;
+        }
+        #id3{
+            width:45%;
+            height:440px;
+            margin-top: 100px;
+        }
+        #id4{
+            width:30%;
+            height:400px;
+            margin-top: 110px;
+            justify-content: space-evenly;
+            display: flex;
+        }
+        .id4-child{
+            width:15%;
+            height:100%;
+        }
+        #id3-child1{
+            width:100%;
+            height:37%;
+        }
+        #id3-child2{
+            width:100%;
+            height:50%;
+        }
+        #id3-child1-1{
+            width:25%;
+            height:80%;
+            background-color: green;
+            text-align: center;
+        }
+        .id3-child2-row{
+            width:100%;
+            height:15%;
+            margin-top: 16px;
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .id3-child2-col{
+            width:8%;
+            height:50px;
+            border:2px solid black;
+            background-color: blue;
+        }
+        #silicon{
+            font-size: 50px;
+            font-weight: bolder;
+        }
+        .id4-grandchild{
+            width:80%;
+            border:2px solid black;
+            background-color: yellow;
+            height:50px;
+            margin: auto;
+            margin-top: 12px;
+        }
+        #id5{
+            width:60%;
+            height:100px;
+            margin:auto;
+            margin-top: 50px;
+        }
+        .id5-row{
+            width:100%;
+            height: 46%;
+            justify-content: space-evenly;
+            display: flex;
+        }
+        .id5-col{
+            width:6%;
+            height: 100%;
+            border:2px solid black;
+            background-color: #46572d;
+        }
+        .id5-col2{
+            width:6%;
+            height: 100%;
+            border:2px solid black;
+            background-color: #95bc5f;
+        }
+    </style>
+</head>
+<body>
+    <h1>The Periodic Table of Elements</h1>
+    <div id="main">
+        <div id="id2">
+            <div id="col-1">
+                <div class="class1" id="hydrogen"><span>H</span></div>
+                <div class="class1">He</div>
+                <div class="class1">Li</div>
+                <div class="class1">Na</div>
+                <div class="class1">K</div>
+                <div class="class1">Rb</div>
+                <div class="class1">Cs</div>
+            </div>
+            <div id="col-2">
+                <div class="class2">Be</div>
+                <div class="class2">Mg</div>
+                <div class="class2">Cr</div>
+                <div class="class2">Sc</div>
+                <div class="class2">Ba</div>
+                <div class="class2">Ra</div>
+            </div>
+            <div id="col-3">
+                <div class="class3">La</div>
+                <div class="class3">Ac</div>
+            </div>
+        </div>
+
+        <div id="id3">
+            <div id="id3-child1">
+                <div id="id3-child1-1"><h1 id="silicon">Si</h1><p>Silicon</p></div>
+            </div>
+            <div id="id3-child2">
+                <div class="id3-child2-row">
+                    <div class="id3-child2-col">Ti</div>
+                    <div class="id3-child2-col">V</div>
+                    <div class="id3-child2-col">Cr</div>
+                    <div class="id3-child2-col">Mn</div>
+                    <div class="id3-child2-col">Fe</div>
+                    <div class="id3-child2-col">Co</div>
+                    <div class="id3-child2-col">Ni</div>
+                    <div class="id3-child2-col">Cu</div>
+                </div>
+                <div class="id3-child2-row">
+                    <div class="id3-child2-col">Y</div>
+                    <div class="id3-child2-col">Zr</div>
+                    <div class="id3-child2-col">Nb</div>
+                    <div class="id3-child2-col">Rh</div>
+                    <div class="id3-child2-col">Pd</div>
+                    <div class="id3-child2-col">Ag</div>
+                    <div class="id3-child2-col">Cd</div>
+                    <div class="id3-child2-col">Z</div>
+                </div>
+                <div class="id3-child2-row">
+                    <div class="id3-child2-col">Hf</div>
+                    <div class="id3-child2-col">Ta</div>
+                    <div class="id3-child2-col">W</div>
+                    <div class="id3-child2-col">Re</div>
+                    <div class="id3-child2-col">As</div>
+                    <div class="id3-child2-col">Ir</div>
+                    <div class="id3-child2-col">Pt</div>
+                    <div class="id3-child2-col">Au</div>
+                </div>
+                <div class="id3-child2-row">
+                    <div class="id3-child2-col">Rf</div>
+                    <div class="id3-child2-col">Db</div>
+                    <div class="id3-child2-col">Sg</div>
+                    <div class="id3-child2-col">Bh</div>
+                    <div class="id3-child2-col">Hs</div>
+                    <div class="id3-child2-col">Mt</div>
+                    <div class="id3-child2-col">Ds</div>
+                    <div class="id3-child2-col">Rg</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="id4">
+            <div class="id4-child">
+                <div class="id4-grandchild">B</div>
+                <div class="id4-grandchild">Al</div>
+                <div class="id4-grandchild">Ga</div>
+                <div class="id4-grandchild">In</div>
+                <div class="id4-grandchild">Th</div>
+                <div class="id4-grandchild">Nh</div>
+            </div>
+            <div class="id4-child">
+                <div class="id4-grandchild">C</div>
+                <div class="id4-grandchild">Si</div>
+                <div class="id4-grandchild">Ge</div>
+                <div class="id4-grandchild">Sn</div>
+                <div class="id4-grandchild">Pb</div>
+                <div class="id4-grandchild">Fl</div>
+            </div>
+            <div class="id4-child">
+                <div class="id4-grandchild">N</div>
+                <div class="id4-grandchild">P</div>
+                <div class="id4-grandchild">As</div>
+                <div class="id4-grandchild">Sb</div>
+                <div class="id4-grandchild">Bi</div>
+                <div class="id4-grandchild">Mc</div>
+            </div>
+            <div class="id4-child">
+                <div class="id4-grandchild">O</div>
+                <div class="id4-grandchild">S</div>
+                <div class="id4-grandchild">Se</div>
+                <div class="id4-grandchild">Te</div>
+                <div class="id4-grandchild">Po</div>
+                <div class="id4-grandchild">Lv</div>
+            </div>
+            <div class="id4-child">
+                <div class="id4-grandchild">F</div>
+                <div class="id4-grandchild">Cl</div>
+                <div class="id4-grandchild">Br</div>
+                <div class="id4-grandchild">I</div>
+                <div class="id4-grandchild">At</div>
+                <div class="id4-grandchild">Ts</div>
+            </div>
+            <div class="id4-child">
+                <div class="id4-grandchild">He</div>
+                <div class="id4-grandchild">Ne</div>
+                <div class="id4-grandchild">Ar</div>
+                <div class="id4-grandchild">Kr</div>
+                <div class="id4-grandchild">Xe</div>
+                <div class="id4-grandchild">Rn</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="id5">
+        <div class="id5-row">
+            <div class="id5-col">Ce</div>
+            <div class="id5-col">Pr</div>
+            <div class="id5-col">Nd</div>
+            <div class="id5-col">Pm</div>
+            <div class="id5-col">Sm</div>
+            <div class="id5-col">Eu</div>
+            <div class="id5-col">Gd</div>
+            <div class="id5-col">Tb</div>
+            <div class="id5-col">Dy</div>
+            <div class="id5-col">Ho</div>
+            <div class="id5-col">Er</div>
+            <div class="id5-col">Tm</div>
+            <div class="id5-col">Yb</div>
+            <div class="id5-col">Lu</div>
+            <div class="id5-col"></div>
+        </div>
+        <div class="id5-row">
+            <div class="id5-col2" >Th</div>
+            <div class="id5-col2" >Pa</div>
+            <div class="id5-col2" >U</div>
+            <div class="id5-col2" >Np</div>
+            <div class="id5-col2" >Pu</div>
+            <div class="id5-col2" >Am</div>
+            <div class="id5-col2" >Cm</div>
+            <div class="id5-col2" >Bk</div>
+            <div class="id5-col2" >Cf</div>
+            <div class="id5-col2" >Es</div>
+            <div class="id5-col2" >Fm</div>
+            <div class="id5-col2" >Md</div>
+            <div class="id5-col2" >No</div>
+            <div class="id5-col2" >Lr</div>
+            <div class="id5-col2" ></div>
+        </div>
+    </div>
+</body>
+</html>

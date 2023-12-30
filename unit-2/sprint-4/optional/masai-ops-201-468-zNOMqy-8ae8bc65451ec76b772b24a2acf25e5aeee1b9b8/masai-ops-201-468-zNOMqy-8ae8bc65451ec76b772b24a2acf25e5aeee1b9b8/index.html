@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Web Movie App</title>
+    <style>
+      /* Write necessery styles here  */
+      #search{
+        width: 100%;
+        margin: auto;
+        text-align: center;
+        margin-top: 50px;
+      }
+      #search>input{
+        height: 1.5rem;
+        outline: none;
+        width: 200px;
+      }
+      #search>button{
+        border: none;
+        padding: 7px 12px;
+        background-color: red;
+        color: white;
+      }
+      #movie_container{
+        width: 90%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        row-gap: 20px;
+        column-gap: 10px;
+        margin-top: 20px;
+      }
+      #movie_container>div>img{
+        width: 100%;
+      }
+      #movie_container>div{
+        padding: 10px;
+        text-align: center;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="search">
+      <input type="text" id="search-inp" placeholder="Search" />
+      <button id="search-btn">Search</button>
+    </div>
+    <div id="movie_container"></div>
+  </body>
+
+  <script>
+    // Write necessery JS here
+
+    let url = "https://www.omdbapi.com/?apiKey=ff718965&s=";
+    let movieName = document.querySelector("#search-inp");
+    let search = document.querySelector("#search-btn");
+    search.addEventListener("click", ()=>{
+      if(movieName.value.length < 3){
+        alert("Movie Name should be greater than 3 words");
+        return;
+      }
+      getdata();
+    })
+
+    async function getdata(){
+      try{
+        let res = await fetch(url+movieName.value);
+        let out = await res.json();
+        displayMovie(out.Search);
+      }
+      catch(err){
+        console.log(err);
+      }
+    }
+
+    let displayMovie = (data) => {
+      data.forEach((elem)=>{
+        let main = document.querySelector("#movie_container");
+        let div = document.createElement("div");
+        let img = document.createElement("img");
+        let name = document.createElement("h2");
+        img.src = elem.Poster;
+        name.innerText = elem.Title;
+        div.append(img,name);
+        main.append(div);
+      })
+    }
+  </script>
+</html>

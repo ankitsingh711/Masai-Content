@@ -1,0 +1,31 @@
+Question 1. --> What are different SQL databases? ( Research and write in a markdown / text )
+
+Solution : There are a lot of different database available in the markets:
+
+            1. MySQL : MySQL is one of the most popular fully-managed database types in SQL-based management. It originally started as an open-source built on C and C++ and now has been the acquirws by Orcale Corporation.
+
+            Pros -->
+            I. One of the most advantageous characteristics of MySQL includes the ease and simplicity of the service, which renders it extremely easy to use and manage.
+
+            II. The community version of MySQL is openly accessible and free to install.
+
+            III. Being both portable and lightweight, MySQL is a leading preference among DevOps teams for deploying cloud-native applications for business solutions.
+
+            Cons --->
+            I.   MySQL is highly unscalable; therefore, volume-related constraints are bound to jeopardize the overall customer experience. Moreover, MySQL strictly fails to adhere to SQL's prescriptive regulations/standards. Thus, many SQL features don't have a backing solution in MySQL. NoSQL databases are a better alternative for developing scalable solutions.
+
+            2. PostgreSQL : PostgreSQL is an advanced type of database in SQL management systems that seeks to step up MySQL solutions. PostgreSQL blends the traditional table-based approach with user-defined objects to create resilient databases supporting and analyzing complex and voluminous data. PostgreSQL is an open-source, freely-accessibly service owned by the PostgreSQL Global Development Group.
+
+            3. SQLite : SQLite is a type of SQL database or storage engine structurally considered equivalent to a C library. It is embedded within other applications to enhance their storage capabilities. It is often used as the on-disk file format in applications for financial analysis, cataloging, etc.
+
+            4. Microsoft SQL Server: Microsoft SQL Server (MSSQL) is one of the most popular DBMS in SQL for innovative management solutions. T-SQL, a derivative of SQL, is used to interact with MSSQL databases. The 2019 version of MSSQL comes integrated with Apache Spark and Hadoop Distributed File System for big data management and analysis
+
+            5. MariaDb : MariaDB is an open-source fork of MySQL. It intends to remain freely accessible to all under the General Public License. It is a database management system in SQL that seeks to be an alternative to MySQL DBMS.
+
+            6. Oracle : The relational database management system provided by Oracle Corp. is a multi-model RDBMS that can support diverse, multiple workloads. This DBMS type in SQL is commonly used for online transaction processing and data warehousing.
+
+            
+
+Question - 2 : Relational Database Management System ( RDBMS ) ?
+
+Solution : The software used to store, retrieve, manage and query data stored in a relational database management system ( RDBMS ). The RDBMS provides an interface between users and applications and the database, as well as administrative functions for managing data storage, access and performance. 

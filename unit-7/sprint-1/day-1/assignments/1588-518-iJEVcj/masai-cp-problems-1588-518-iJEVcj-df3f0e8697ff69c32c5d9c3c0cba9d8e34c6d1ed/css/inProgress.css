@@ -1,0 +1,54 @@
+*{
+    margin:0px;
+    padding:0px;
+    overflow-x: hidden;
+}
+
+#navbar{
+    width: 100%;
+    background-color: orange;
+    color: black;
+    display: flex;
+    justify-content: space-between;
+}
+
+#navbar>div{
+    margin-right: 30px;
+    display: flex;
+}
+
+#navbar>div a{
+    margin-left: 20px;
+}
+
+#navbar a{
+    text-decoration: none;
+    color: black;
+}
+
+table{
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 20px;
+}
+
+thead{
+    background-color: orange;
+}
+
+tbody>tr:nth-child(even){
+    background-color: orange;
+    color: black;
+}
+
+.add-btn{
+    background-color: red;
+    color: white;
+}
+
+.add-to-done{
+    background-color: red;
+    color: white;
+}

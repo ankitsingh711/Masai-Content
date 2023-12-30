@@ -1,0 +1,8 @@
+Question :: Think of 5 real life example of rows and columns and list them down. Explain for each example- why you think it should be considered as a row or a column.
+
+Solution : 
+
+S.No     Email             First_Name       Last_Name   College     City    Mob_No 
+1       abc@gmail.column    Abc             DEF         XYZ         Vetican     6555555
+
+This is a real life example of a student data. I considered S.no, eamil, first_name, last_name and college as a column and the datya of the student as a row because the relational database is in the form of table format and have a relation.

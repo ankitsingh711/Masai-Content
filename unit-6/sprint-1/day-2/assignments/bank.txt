@@ -1,0 +1,48 @@
+-- Question 1. Retrieve all the records from the table BORROW where the amount in between 2000 and 3000 ?
+
+Solution -> select * from BORROW where amount > 2000 and amount < 3000;
+
+Question -> 2: Retrieve the details from the table DEPOSIT
+ Solution -> select * from DEPOSIT;
+
+ Question -> Retrieve customer name and account no. from deposit ?
+ Solution -> select CNAME, ACTNO from deposit;
+
+ Question -> 4 : Retrieve the name of the customer living in NAGPUR.
+Solution -> select cname from customer where city = "nagpur";
+
+Question -> 5 : Retrieve the name of the customers who opened accounts after 17-NOV-95.
+Solution -> select cname from deposit where adate > 1995-11-17;
+
+Question -> Retrieve the account number and amount of the customer having an account opened between 01-12-95 and 01-06.96.
+Solution -> select cname from deposit where adate > 01-12-95 and adate < 01-06-96;
+
+Question -> Retrieve all the records from the table DEPOSIT where CNAME begins with C.
+Solution -> select * from deposit where cname like "a%";
+
+Question -> Retrieve all the records from the table BORROW where the 2nd character of CNAME is U.
+Solution -> select * from deposit where cname like "_u%";
+
+Question -> Retrieve all the records from the table DEPOSIT where the branch name is CHANDNI or MG ROAD.
+Solution -> select * from deposit where bname = "chandni" or bname = "mg road";
+
+Question -> Retrieve all the records from the table DEPOSIT where the branch name is not CHANDNI or MG ROAD.
+Solution -> select * from deposit where bname <> "chandni" and bname <> "mg road";
+
+Question -> Retrieve all the records from DEPOSIT where the amount > 1000 and arrange the customer name in ascending order.
+Solution -> select * from deposit where amount > 1000 and cname order by ASC;
+
+Question -> Retrieve customer details from the BORROW table where the third character of the customer name is either ‘A’ or ‘D’.
+Solution -> select * from borrow where cname like "__a%" or cname like "__d%";
+
+Question -> Retrieve all the records from the table BORROW where the amount is not between 2000 and 8000.
+Solution -> select * from borrow where amount not between 2000 and 8000;
+
+Question -> Find out the unique records from the table DEPOSIT
+Solution -> select distinct bname from deposit;
+
+Question -> Update the amount of all depositors in the deposit table by giving them 10% interest (i.e. amount=amount * 0.1) where the branch is VRCE.
+Solution -> update deposit set amount = amount + (amount*0.2) where bname = "vrce";
+
+Question -> Update the amount of all depositors in the deposit table by giving them 10% interest where the branch is VRCE and the customer name is ANIL.
+Solution -> update deposit set amount = amount + (amount*0.2) where bname = "vrce" and cname = "anil";

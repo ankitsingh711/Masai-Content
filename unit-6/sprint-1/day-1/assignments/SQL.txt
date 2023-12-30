@@ -1,0 +1,100 @@
+Question --> What are different SQL databases? ( Research and write in a markdown / text )
+Solution :: 
+
+1. MySQL ---> MySQL is one of the most popularly fully-managed database types in SQL-based management. It originally started as an open-source peoject built on C and C++ and has now been acquired by Oracle Corporation.
+
+Pros:
+
+One of the most advantageous characteristics of MySQL includes the ease and simplicity of the service, which renders it extremely easy to use and manage.
+The community version of MySQL is openly accessible and free to install.
+Being both portable and lightweight, MySQL is a leading preference among DevOps teams for deploying cloud-native applications for business solutions.
+Cons:
+
+MySQL is highly unscalable; therefore, volume-related constraints are bound to jeopardize the overall customer experience. Moreover, MySQL strictly fails to adhere to SQL's prescriptive regulations/standards. Thus, many SQL features don't have a backing solution in MySQL. NoSQL databases are a better alternative for developing scalable solutions.
+
+
+<-------------------------------------------------------------------------------------------------------------------------->
+
+2. PostgreSQL
+PostgreSQL is an advanced type of database in SQL management systems that seeks to step up MySQL solutions. PostgreSQL blends the traditional table-based approach with user-defined objects to create resilient databases supporting and analyzing complex and voluminous data. PostgreSQL is an open-source, freely-accessibly service owned by the PostgreSQL Global Development Group.
+
+Pros:
+
+PostgreSQL is known for the compliance it offers with SQL's standards. It can deal with data in multiple formats, including JSON and XML, thus providing it with the flexible capabilities of a NoSQL database as well. Therefore, it is preferable to devise business solutions with diverse file requirements.
+It offers complete vertical scalability for database extensions and configurations.
+Third-party tools help improve the exhaustive performance of PostgreSQL to improve data monitoring and synchronization.
+Cons:
+
+The official documentation of PostgresSQL is not fully developed and is somewhat inconsistent.
+PostgreSQL also lacks advanced monitoring and auditing support to display the database's current performance and status.
+
+
+
+<------------------------------------------------------------------------------------------------------------------------------------->
+
+3. SQLite
+SQLite is a type of SQL database or storage engine structurally considered equivalent to a C library. It is embedded within other applications to enhance their storage capabilities. It is often used as the on-disk file format in applications for financial analysis, cataloging, etc.
+
+Pros:
+
+SQLite is highly portable and requires no external configurations or infrastructure. Being a C library, only SQLite's internal libraries need to be installed.
+SQLite is a reliable service offering complete version control so that data is not lost in the event of an infrastructural error like a power failure. It is regularly centralized.
+Reading, writing, and overwriting operations are much faster on SQLite than on a File System.
+Cons:
+
+SQLite is unsuitable for handling bulky requests and data.
+SQLite can only support one writer at the transaction's execution time. This limits multi-user capabilities
+
+
+
+<-------------------------------------------------------------------------------------------------------------------------------------->
+
+4. Microsoft SQL Server
+Microsoft SQL Server (MSSQL) is one of the most popular DBMS in SQL for innovative management solutions. T-SQL, a derivative of SQL, is used to interact with MSSQL databases. The 2019 version of MSSQL comes integrated with Apache Spark and Hadoop Distributed File System for big data management and analysis.
+
+Pros:
+
+MSSQL is tailored to suit the business landscape and curate end-to-end commercial solutions.
+It is highly flexible and has a vivid range of versions with diverse functionalities suitable for varying use cases.
+Being a Microsoft technology, it has access to massive community support and rich documentation.
+It is also integrable with Microsoft's cloud-based data technologies, including Azure SQL Databases.
+Cons:
+
+MSSQL is not available free of cost and follows a pay-as-you-go model.
+MSSQL has a dynamic license agreement susceptible to frequent changes and altercations. Thus it reduces the efficacy of MSSQL.
+
+
+<------------------------------------------------------------------------------------------------------------------------------------>
+
+MariaDB
+MariaDB is an open-source fork of MySQL. It intends to remain freely accessible to all under the General Public License. It is a database management system in SQL that seeks to be an alternative to MySQL DBMS.
+
+Pros:
+
+MariaDB offers faster computation and performs better than MySQL or other traditional relational database management systems.
+Its remarkable performance on flash data makes it one of the best choices for data warehousing, customer analysis, and optimized querying.
+MariaDB also promises advanced security features with PAM and LDAP authentication, encrypted tables, etc.
+Cons:
+
+Despite being community-developed, MariaDB's community is not fully developed. Thus, it results in poorer documentation.
+Moreover, aligning MariaDB with SQL paradigms is not that simple, as variations are bound to happen.
+
+
+<----------------------------------------------------------------------------------------------------------------------------------->
+
+Oracle
+The relational database management system provided by Oracle Corp. is a multi-model RDBMS that can support diverse, multiple workloads. This DBMS type in SQL is commonly used for online transaction processing and data warehousing.
+
+Pros:
+
+Oracle is a prominent name in the industry, making it a global community creating rich resources and documentation.
+Oracle's most significant edge over other database management systems is its capacity to store and analyze massive volumes of multi-model data.
+Cons:
+
+Intensive costs and expenditures limit access to Oracle's enhanced functionalities.
+It also requires exhaustive external infrastructure and disk space on your local machine to install completely.
+Moreover, Oracle's database is not beginner-friendly and requires time to perfect and master.
+
+
+
+

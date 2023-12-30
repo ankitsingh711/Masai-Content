@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stop Watch</title>
+    <style>
+        body{
+            margin: 0px;
+            padding: 0px;
+        }
+        .main{
+            width: 30%;
+            margin: auto;
+            height: 30vh;
+            margin-top: 200px;
+            background-color: teal;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            color: white;
+            
+        }
+
+        .main>div{
+            font-size: 50px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            padding: 10px;
+        }
+
+        span{
+            font-size: 40px;
+            font-weight: bold;
+        }
+
+        #all{
+            padding-bottom: 15px;
+            background-color: teal;
+            width: 30%;
+            margin-top: 200px;
+            margin: auto;
+            text-align: center;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+
+        button{
+            border: none;
+            padding: 7px 15px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="all">
+        <div class="main">
+            <div id="mins">00</div><span>:</span>
+            <div id="secs">00</div>
+        </div>
+        <button id="start">START</button>
+        <button id="stop">STOP</button>
+        <button id="res">RESTART</button>
+    </div>
+
+</body>
+</html>
+
+<script>
+
+    document.querySelector("#start").addEventListener("click", stopWatch);
+    let count=0
+    let minCount=0;
+    function stopWatch(){
+        count++;
+        let minutes = document.querySelector("#mins");
+        let seconds = document.querySelector("#secs");
+        seconds.innerText = count;
+        minutes.innerText = minCount;
+
+        let x = setInterval(stopWatch, 10);
+
+        if(count===400){
+            minCount++;
+            count=0;
+            seconds.innerText=count;
+        }
+
+        let stop = document.querySelector("#stop");
+        stop.addEventListener("click", ()=>{
+            clearInterval(x);
+        })
+
+        let restart = document.querySelector("#res");
+        restart.addEventListener("click", ()=>{
+            clearInterval(x);
+            count=0;
+            minCount=0;
+            minutes.innerText = minCount;
+            seconds.innerText=count;
+        })
+
+    }
+</script>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
+    <style>
+      /* Write all necessery css here  */
+      body{
+        margin:0px;
+        padding:0px;
+      }
+      .nav{
+        margin: auto;
+        width:100%;
+        background-color:teal;
+        color:white;
+        display:flex;
+        justify-content: space-evenly;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      }
+      .nav>a{
+        color:white;
+        text-decoration: none;
+        font-size: 25px;
+        font-weight: bold;
+        padding-top: 25px;
+      }
+      #filter{
+        margin-left: 600px;
+        margin-top: 10px;
+        font-size:16px;
+      }
+      #product-container{
+        margin-top:10px;
+        display:grid;
+        grid-template-columns: repeat(4,1fr);
+        column-gap:10px;
+        row-gap: 10px;
+      }
+      #product-container>div{
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        text-align: center;
+        padding:10px;
+      }
+
+      @media screen and (min-width:600px) and (max-width:1000px){
+        #product-container{
+          grid-template-columns: repeat(2,1fr);
+        }
+      }
+
+      @media screen and (min-width:100px) and (max-width:599px){
+        #product-container{
+          grid-template-columns: repeat(1,1fr);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="nav">
+      <h1>Masai E-Commerce</h1>
+      <a href="./index.html">Home</a>
+      <a href="./cart.html">Cart</a>
+    </div>
+    <!-- Use this Select Tag for Filtering the Products  -->
+    <select id="filter">
+      <option value="">Filter By Category</option>
+      <option value="Laptop">Laptop</option>
+      <option value="Mobile">Mobile</option>
+      <option value="Speakers">Speakers</option>
+    </select>
+    <div id="product-container">
+      <!-- Here Append All the Products  -->
+    </div>
+  </body>
+  <script>
+    // Write all necessery JS here 
+    let url = "https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-tech-products"
+    let bag;
+    async function getProducts(){
+      try{
+        let res = await fetch(url);
+        let out = await res.json();
+        bag = out.data;
+        displaycard(bag);
+      }
+      catch(err){
+        console.log(err);
+      }
+    }
+    getProducts();
+
+    let main = document.querySelector("#product-container")
+    function displaycard(data){
+      main.innerHTML=null;
+      console.log(data)
+      data.forEach((elem)=>{
+        let div = document.createElement("div");
+        let image = document.createElement("img");
+        image.style.width="80%"
+        image.src = elem.img;
+        let name = document.createElement("h2");
+        name.innerText = elem.brand;
+        let price = document.createElement("h3");
+        price.innerText = "Rs."+" "+elem.price;
+        let des = document.createElement("p");
+        des.innerText = elem.details;
+        let cat = document.createElement("h3");
+        cat.innerText = elem.category;
+        let addbtn = document.createElement("button");
+        addbtn.innerText = "Add to cart";
+        addbtn.addEventListener("click", ()=>{
+          addToCart(elem);
+        })
+        addbtn.style.backgroundColor="teal";
+        addbtn.style.color="white";
+        addbtn.style.padding="5px 5px";
+        addbtn.style.border="none";
+        addbtn.style.marginBottom="10px"
+        div.append(image,name,price,des,cat,addbtn);
+        main.append(div)
+      })
+    }
+
+    let filter = document.querySelector("#filter");
+    filter.addEventListener("change", ()=>{
+      filterProduct();
+    })
+    // filter 
+    function filterProduct(){
+      if(filter.value===""){
+        displaycard(bag);
+      }else{
+        let filteredData = bag.filter((elem)=>{
+          return elem.category === filter.value;
+        })
+        displaycard(filteredData)
+      }
+    }
+    let addcartArr = JSON.parse(localStorage.getItem("cart-item"))||[];
+    function addToCart(elem){
+      let flag=true;
+      addcartArr.forEach((elements)=>{
+        if(elements===elem){
+          alert("Product already in the cart");
+          flag = false;
+        }
+      })
+      if(flag === true){
+        addcartArr.push(elem);
+        localStorage.setItem("cart-item", JSON.stringify(addcartArr));
+        alert("Product Added to the Cart");
+      }
+    }
+
+  </script>
+</html>
+

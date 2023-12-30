@@ -1,0 +1,66 @@
+[
+    {
+        "name": "Kantaara",
+        "rating": 9.7,
+        "cast": "english",
+        "genre": "action",
+        "description": "This is an action movie",
+        "id": "45f549f824bb9bb7a6588cd4c31f871a"
+    },
+    {
+        "name": "Bhool Bhulaiyan",
+        "rating": 7.9,
+        "cast": "Hindi",
+        "genre": "comedy",
+        "description": "This is a comedy movie",
+        "id": "d7b84d75433537aa39136a370e878e13"
+    },
+    {
+        "name": "Kanchana",
+        "cast": "kk",
+        "genre": "hrror",
+        "description": "this is a hroor movie",
+        "rating": 2.3,
+        "id": "fc2fee05ab1fdb4289c9a0e99c3cbbfd"
+    },
+    {
+        "name": "Koaak",
+        "genre": "jsklsa",
+        "cast": "opasosa",
+        "rating": 90,
+        "description": "hdsksaksasa",
+        "id": "d62a4d05783e20baab55fd9a068ba9e0"
+    },
+    {
+        "name": "Happy new year",
+        "genre": "jsklsa",
+        "cast": "opasosa",
+        "rating": 90,
+        "description": "hdsksaksasa",
+        "id": "6367df78325d4f01d5fb1938b97ab242"
+    },
+    {
+        "name": "Happy new year",
+        "genre": "jsklsa",
+        "cast": "opasosa",
+        "rating": 90,
+        "description": "hdsksaksasa",
+        "id": "c35e047ada6e1f105aa6b24be264dfbf"
+    },
+    {
+        "name": "jskks",
+        "cast": "jsasa",
+        "rating": 3.3,
+        "description": "sdhjjkhd",
+        "genre": "kjkds",
+        "id": "75ee6a18321af878aae627078648e37d"
+    },
+    {
+        "name": "Kantaara",
+        "rating": 9.7,
+        "cast": "english",
+        "genre": "action",
+        "description": "This is an action movie",
+        "id": "7ffd5bdc66617048d19851d1ec1f3076"
+    }
+]

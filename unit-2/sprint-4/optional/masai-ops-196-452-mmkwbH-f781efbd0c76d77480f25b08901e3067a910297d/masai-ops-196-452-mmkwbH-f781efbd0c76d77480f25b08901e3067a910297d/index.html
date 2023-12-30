@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign up Page</title>
+  <style>
+      /* Write all necessery css here  */
+      body{
+        margin: 0px;
+        padding: 0px;
+      }
+      .nav{
+        width: 100%;
+        background-color: black;
+        color: white;
+        text-align: center;
+        padding: 10px;
+      }
+      .nav>a{
+        text-decoration: none;
+        margin: 100px;
+        color: white;
+        font-size: 20px;
+        font-family: 'Times New Roman', Times, serif;
+      }
+
+      #signup{
+        width: 30%;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        padding: 20px;
+        margin: auto;
+        text-align: center;
+        margin-top: 20px;
+        height: 60vh;
+      }
+      #signup input{
+        width: 80%;
+        height: 2rem;
+      }
+      #submit{
+        border: none;
+        padding: 8px;
+        background-color: black;
+        color: white;
+      }
+  </style>
+</head>
+
+<body>
+  <div class="nav">
+    <a href="./index.html">Signup</a>
+    <a href="./signin.html">Signin</a>
+  </div>
+  <div id="signup">
+    <h1>Please Enter Your Details</h1>
+    <form>
+      <input type="text" id="name" placeholder="Type your name"><br><br>
+      <input type="email" id="email" placeholder="Type your email"><br><br>
+      <input type="password"  id="password" placeholder="Type your password"><br><br>
+      <input id="submit" type="submit" value="Signup" />
+    </form>
+  </div>
+</body>
+<script>
+  let form = document.querySelector("form");
+  form.addEventListener("submit", signup);
+
+    let signupArr=JSON.parse(localStorage.getItem("account-data"))||[]
+  function signup(e){
+    e.preventDefault();
+    let name = document.querySelector("#name").value;
+    let email = document.querySelector("#email").value;
+    let pass = document.querySelector("#password").value;
+    let signobj = {name,email,pass};
+    signupArr.push(signobj);
+    if(name===""||email===""||pass===""){
+      alert("All fields are mandatory");
+    }else{
+      localStorage.setItem("account-data", JSON.stringify(signupArr));
+    }
+  }
+</script>
+
+</html>

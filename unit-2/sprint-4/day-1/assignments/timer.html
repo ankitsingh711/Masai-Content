@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+    <style>
+        #input{
+            width: 100%;
+            text-align: center;
+            font-size: 30px;
+        }
+        #input>input{
+            outline: none;
+        }
+
+        .main{
+            width: 80%;
+            margin: auto;
+            display: flex;
+            justify-content: space-evenly;
+            margin-top: 100px;
+            padding: 20px;
+        }
+        .main>div{
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+            font-size: 50px;
+            color: aqua;
+            background-color: white;
+            padding: 10px;
+        }
+        .all{
+            width: 60%;
+            margin: auto;
+            background-color: aqua;
+            text-align: center;
+            padding-bottom: 20px;
+        }
+
+        .all button{
+            border: none;
+            padding: 5px 15px;
+            font-size: 20px;
+        }
+        span{
+            color: white;
+            font-size: 35px;
+            padding: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="input">
+        <form action="">
+            <label for="">Hours</label>
+            <input id="inphrs" type="number" placeholder="Input hours">
+            <label for="">Minutes</label>
+            <input id="inpmins" type="number" placeholder="Input minutes">
+            <label for="">Seconds</label>
+            <input id="inpsecs" type="number" placeholder="Input seconds">
+            <input type="submit">
+        </form>
+    </div>
+
+    <div class="all">
+        <div class="main">
+            <div id="hrs">00</div><span>:</span>
+            <div id="mins">00</div><span>:</span>
+            <div id="secs">00</div>
+        </div>
+            <button id="start">Start</button>
+            <button id="stop">Stop</button>
+            <button id="reset">Reset</button>
+    </div>
+</body>
+</html>
+
+<script>
+    document.querySelector("form").addEventListener("submit", timer);
+
+    function timer(e){
+        e.preventDefault();
+        let hrs = document.querySelector("#inphrs").value;
+        let mins = document.querySelector("#inpmins").value;
+        let secs = document.querySelector("#inpsecs").value;
+
+        
+        let hours = document.querySelector("#hrs");
+        hours.innerText = hrs;
+
+        let minutes = document.querySelector("#mins");
+        minutes.innerText = mins;
+
+        let seconds = document.querySelector("#secs");
+        seconds.innerText = secs;
+
+        if(hrs==""){
+            hours.innerText = "00";
+        } 
+        
+        if(secs==""){
+            seconds.innerText="00";
+        } 
+        
+        if(mins==""){
+            minutes.innerText="00"
+        }
+
+        let start = document.querySelector("#start");
+        start.addEventListener("click", ()=>{
+            let x = setInterval(()=>{
+                secs--;
+                seconds.innerText = secs;
+
+
+                if(hrs===0 && mins===0 && secs===0){
+                    clearInterval(x);
+                }
+
+                if(secs==0 && mins==00){
+                    clearInterval(x);
+                    mins=0;
+                    secs=0;
+                    minutes.innerText=mins;
+                    seconds.innerText=secs;
+                }
+
+                
+
+                if(secs<=0  && mins!==0){
+                    mins--;
+                    minutes.innerText=mins;
+                    secs = 60;
+                    seconds.innerText=secs;
+                }
+
+                if(mins===0 && hrs!=0){
+                    secs--;
+                    hrs-=1;
+                    hours.innerText=hrs;
+                    mins=60;
+                    minutes.innerText=mins;
+                }
+
+                let stop = document.querySelector("#stop");
+                stop.addEventListener("click", ()=>{
+                    clearInterval(x);
+                })
+
+                let reset = document.querySelector("#reset");
+                reset.addEventListener("click", ()=>{
+                    clearInterval(x);
+                    hrs = "00";
+                    mins = "00";
+                    secs = "00";
+                    hours.innerText = hrs;
+                    minutes.innerText = mins;
+                    seconds.innerText = secs;
+                })
+            },1000)
+        })
+
+    }
+</script>

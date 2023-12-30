@@ -1,0 +1,36 @@
+{
+    "student": [
+        {
+            "name": "chunnu",
+            "city": "manali"
+        },
+        {
+            "name": "Munnu",
+            "city": "Nainital"
+        },
+        {
+            "name": "Ankit Singh",
+            "class": "Bsc 3rd year"
+        },
+        {
+            "name": "Abhi Panchal",
+            "std_code": "fp07_383",
+            "status": "genius"
+        }
+    ],
+    "teacher": [
+        {
+            "name": "Albert",
+            "subject": "Coding"
+        },
+        {
+            "name": "Ankush",
+            "subject": "DSA"
+        },
+        {
+            "name": "Ankit Singh",
+            "sub": "coding",
+            "age": "18"
+        }
+    ]
+}

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart Page</title>
+    <style>
+      /* Write all necessery css here  */
+      body{
+        margin:0px;
+        padding:0px;
+      }
+      .nav{
+        width:100%;
+        background-color:teal;
+        color:white;
+        display:flex;
+        justify-content: space-evenly;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      }
+      .nav>a{
+        color:white;
+        text-decoration: none;
+        font-size: 25px;
+        font-weight: bold;
+        padding-top: 25px;
+      }
+      #cart-container{
+        margin-top:10px;
+        display:grid;
+        grid-template-columns: repeat(4,1fr);
+        column-gap:10px;
+        row-gap: 10px;
+      }
+      #cart-container>div{
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        text-align: center;
+        padding:10px;
+      }
+      #total{
+        text-align: center  ;
+      }
+
+      @media screen and (min-width:600px) and (max-width:1000px){
+        #cart-container{
+          grid-template-columns: repeat(2,1fr);
+        }
+      }
+
+      @media screen and (min-width:100px) and (max-width:599px){
+        #cart-container{
+          grid-template-columns: repeat(1,1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="nav">
+      <h1>Masai E-Commerce</h1>
+      <a href="./index.html">Home</a>
+      <a href="./cart.html">Cart</a>
+    </div>
+    <h1 id="total">Your Total cart Price is:- <span id="cart-total">0</span></h1>
+    <div id="cart-container">
+      <!-- Here Append All the cart Products  -->
+    </div>
+  </body>
+  <script>
+    // Write all necessery JS here 
+    let cartData = JSON.parse(localStorage.getItem("cart-item"));
+    let total = cartData.reduce((acc,elem,index)=>{
+      return acc+elem.price;
+    },0)
+    let displayTotal = document.querySelector("#cart-total");
+    displayTotal.innerText = "Rs."+" "+total;
+
+      let main = document.querySelector("#cart-container");
+    function displaycard(data){
+      main.innerHTML=null;
+      data.forEach((elem, index)=>{
+        let count = 1;
+        let div = document.createElement("div");
+        let image = document.createElement("img");
+        image.style.width="80%"
+        image.src = elem.img;
+        let name = document.createElement("h2");
+        name.innerText = elem.brand;
+        let price = document.createElement("h3");
+        price.innerText = "Rs."+" "+elem.price;
+        let des = document.createElement("p");
+        des.innerText = elem.details;
+        let cat = document.createElement("h3");
+        cat.innerText = "Category:"+" "+elem.category;
+        let proNum = document.createElement("span");
+        proNum.innerText = count;
+        let minus = document.createElement("button");
+        minus.innerText = "-";
+        minus.style.marginRight="5px";
+        minus.addEventListener("click", ()=>{
+          if(count===1){
+            return;
+          }
+          total -= elem.price;
+          displayTotal.innerText = "Rs."+" "+total;
+          count--;
+          console.log(count)
+          proNum.innerText = count;
+        })
+        let plus = document.createElement("button");
+        plus.innerText = "+";
+        plus.addEventListener("click", ()=>{
+          total += elem.price;
+          displayTotal.innerText = "Rs."+" "+total;
+          count++;
+          console.log(count);
+          proNum.innerText = count;
+        })
+        plus.style.marginLeft="5px"
+        let remove = document.createElement("button");
+        remove.innerText = "Remove";
+        remove.style.marginLeft="5px";
+        remove.style.border="none";
+        remove.style.backgroundColor="red";
+        remove.style.color="white";
+        remove.style.padding="5px";
+        remove.addEventListener("click", ()=>{
+          removePro(cartData, index);
+        })
+        div.append(image,name,price,des,cat,minus,proNum,plus, remove);
+        main.append(div)
+      })
+    }
+    displaycard(cartData);
+    function removePro(data, index){
+      data.splice(index,1);
+      localStorage.setItem("cart-item", JSON.stringify(data));
+      displaycard(data);
+    }
+
+  </script>
+</html>
+

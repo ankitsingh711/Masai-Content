@@ -1,0 +1,112 @@
+/////Create a db named "graduates".
+====>use graduates
+switched to db graduates
+
+///////Create a collection named "users".
+====> use graduates
+switched to db graduates
+
+//////Insert the above data in the collection.
+====> db.users.insertMany([{data}]);
+
+//////Show the data of "Male" users who are "Single".
+====>users> db.users.find({$and:[{gender:"Male"},{isMarried:false}]})
+
+[
+  {
+    _id: ObjectId("63b2affde56dbbdb4452675a"),
+    first_name: 'Pebrook',
+    last_name: 'Currum',
+    percentage: 82,
+    gender: 'Male',
+    university: 'Universidade Cruzeiro do Sul',
+    isMarried: false
+  },
+  {
+    _id: ObjectId("63b2affde56dbbdb4452675b"),
+    first_name: 'Sidney',
+    last_name: 'Corbert',
+    percentage: 82,
+    gender: 'Male',
+    university: 'Hogeschool voor Wetenschap en Kunst (VLEKHO), Brussel',
+    isMarried: false
+  }
+]
+
+
+
+/////Show the data of all the "Female" users who scored more that 80 percent.
+====> db.users.find({$and:[{gender:"Female"},{percentage:{$gt:80}}]})
+
+// No data found
+
+/////Show the data of all the users who scored more than or equal to 50 percent.
+====> db.users.find({percentage:{$gte:50}})
+
+[
+  {
+    _id: ObjectId("63b2affde56dbbdb44526757"),
+    first_name: 'Ida',
+    last_name: 'Hammerman',
+    percentage: 41,
+    gender: 'Female',
+    university: 'Fordham University',
+    isMarried: false
+  },
+  {
+    _id: ObjectId("63b2affde56dbbdb44526758"),
+    first_name: 'Phyllida',
+    last_name: 'Gauntlett',
+    percentage: 73,
+    gender: 'Non-binary',
+    university: 'Medical Academy in Bialystok',
+    isMarried: false
+  },
+
+graduates> db.users.find({percentage:{$gte:50}})
+[
+  {
+    _id: ObjectId("63b2affde56dbbdb44526758"),
+    first_name: 'Phyllida',
+    last_name: 'Gauntlett',
+    percentage: 73,
+    gender: 'Non-binary',
+    university: 'Medical Academy in Bialystok',
+    isMarried: false
+  },
+  {
+    _id: ObjectId("63b2affde56dbbdb4452675a"),
+    first_name: 'Pebrook',
+    last_name: 'Currum',
+    percentage: 82,
+    gender: 'Male',
+    university: 'Universidade Cruzeiro do Sul',
+    isMarried: false
+  },
+  {
+    _id: ObjectId("63b2affde56dbbdb4452675b"),
+    first_name: 'Sidney',
+    last_name: 'Corbert',
+    percentage: 82,
+    gender: 'Male',
+    university: 'Hogeschool voor Wetenschap en Kunst (VLEKHO), Brussel',
+    isMarried: false
+  }
+]
+
+
+/////Update the data of all the "Female" users and add a field "scholarship":true.
+===>db.users.updateMany({gender:"Female"},{$set:{"scholarship":true}})
+
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 2,
+  modifiedCount: 2,
+  upsertedCount: 0
+}
+
+////Delete the data of all the users who scored less than 40 percent.
+====>users> db.users.deleteMany({percentage:{$lt:40}})
+
+{ acknowledged: true, deletedCount: 1 }

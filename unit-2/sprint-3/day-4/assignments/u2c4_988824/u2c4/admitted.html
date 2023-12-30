@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admitted</title>
+    <style>
+
+        table{
+            margin: auto;
+            width: 75%;
+        }
+        thead{
+            background-color: teal;
+            color: white;
+            font-size: 20px;
+        }
+        tbody{
+            font-size: 20px;
+        }
+        tbody>tr:nth-child(odd){
+            color: teal;
+        }
+        tbody>tr:nth-child(even){
+            background-color: teal;
+            color: white;
+        }
+        body{
+            margin: 0px;
+            padding: 0px;
+        }
+        .navbar{
+            display: flex;
+            width: 100%;
+            justify-content: space-evenly;
+            background-color: teal;
+            margin-bottom: 20px;
+        }
+        .navbar>a{
+            text-decoration: none;
+            color: wheat;
+            font-size: 10px;
+        }
+
+        table{
+            width: 90%;
+            margin: auto;
+        }
+        thead{
+            background-color: teal;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="./index.html">
+            <h1>Add Students</h1>
+        </a>
+        <a href="./students.html">
+            <h1>Students Database</h1>
+        </a>
+        <a href="./admitted.html">
+            <h1>Admitted</h1>
+        </a>
+        <a href="./rejected.html">
+            <h1>Rejected</h1>
+        </a>
+    </div>
+    <table cellspacing="0">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Course</th>
+                <th>Gender</th>
+                <th>Phone</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- All the rows should be appended here  -->
+        </tbody>
+    </table>
+</body>
+<script src="./admitted.js"></script>
+
+</html>

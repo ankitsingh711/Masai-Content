@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <style>
+        .main{
+            width: 60%;
+            margin: auto;
+            display: flex;
+            justify-content: space-evenly;
+            height: 50vh;
+            margin-top: 170px;
+            align-items: center;
+            background-color: teal;
+        }
+
+        .main>div{
+            padding: 5px;
+            color: teal;
+            background-color: white;
+            font-size: 60px;
+        }
+        span{
+            color: white;
+            font-size: 30px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div id="hrs"></div><span>:</span>
+        <div id="mins"></div><span>:</span>
+        <div id="secs"></div><span>:</span>
+        <div id="am"></div>
+    </div>
+</body>
+</html>
+
+<script>
+    function digClock(){
+        let date = new Date();
+        let hours = document.querySelector("#hrs");
+        hours.innerText = date.getHours();
+        let minute = document.querySelector("#mins");
+        minute.innerText = date.getMinutes();
+        let second = document.querySelector("#secs");
+        second.innerText = date.getSeconds();
+        if(hours.innerText >= 12){
+            let am = document.querySelector("#am");
+            am.innerText = "PM"
+        }else{
+            let am = document.querySelector("#am");
+            am.innerText = "AM"
+        }
+    }
+    setInterval(digClock, 1000);
+</script>

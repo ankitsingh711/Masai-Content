@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>OddEven App</title>
+    <style>
+        #generate-number{
+            margin-left: 620px;
+            margin-top: 80px;
+        }
+        #number{
+            font-size: 40px;
+            text-align: center;
+        }
+        #odd-even{
+            text-align: center;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <button id = "generate-number" >Generate Number</button>
+    <div id = "number" ></div>
+    <div id = "odd-even"></div>
+    <script src="./src/oddEven.js" ></script>
+</body>
+</html>
+
+<script>
+    let gen = document.querySelector("#generate-number");
+    gen.addEventListener("click", generateNumber);
+
+    function generateNumber(){
+        let x = Math.floor(Math.random()*9+10);
+        let dis = document.querySelector("#number");
+        let evenOdd = document.querySelector("#odd-even");
+        dis.innerText = x;
+        if(x%2==0){
+            evenOdd.innerText="Even"
+        }else{
+            evenOdd.innerText="Odd"
+        }
+    }
+</script>

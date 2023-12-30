@@ -1,0 +1,34 @@
+1. Count the number of students in each department.
+
+Solution -> select branch, count(*) as tstudents from student group by branch;
+
+2. Count the number of students in each department where the department name starts with ‘E’.
+
+Solution -> select branch, count(*) as tstudents from student group by branch; 
+
+3. Add a field called MARKS to the table STUDENT which can hold a number up to 8 digit in length.
+
+Solution -> ALTER TABLE student
+    ADD MARKS INT CHECK (MARKS BETWEEN 0 AND 8);
+
+4. Modify the field:” NAME” of the table STUDENT to hold a maximum of 25 characters.
+
+Solution -> alter table student
+modify name varchar(25);
+
+5. Delete all rows from the table STUDENT where the branch is ETC.
+
+Solution -> delete from student where branch="etc";
+
+6. Rename the table STUDENT to STUDINFORMATION.
+
+Solution -> alter table student
+rename to STUDINFORMATION;
+
+7. Delete all the data part from the table STUDENT.
+
+Solution -> delete from student;
+
+8. Destroy the table STUDENT.
+
+Solution -> drop table student;

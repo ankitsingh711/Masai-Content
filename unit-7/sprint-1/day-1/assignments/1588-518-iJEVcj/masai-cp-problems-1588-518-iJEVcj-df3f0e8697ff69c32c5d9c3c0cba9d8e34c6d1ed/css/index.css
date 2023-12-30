@@ -1,0 +1,43 @@
+*{
+    margin:0px;
+    padding:0px;
+    overflow-x: hidden;
+}
+
+#navbar{
+    width: 100%;
+    background-color: orange;
+    color: black;
+    display: flex;
+    justify-content: space-between;
+}
+
+#navbar>div{
+    margin-right: 30px;
+    display: flex;
+}
+
+#navbar>div a{
+    margin-left: 20px;
+}
+
+#navbar a{
+    text-decoration: none;
+    color: black;
+}
+
+/* <---- Navbar csss ---> */
+
+#create{
+    width: 30%;
+    text-align: center;
+    margin: auto;
+    margin-top: 30px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 10px;
+}
+
+#create form{
+    margin-top: 10px;
+}
+

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies</title>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <style>
+        body{
+            margin: 0px;
+            padding: 0px;
+        }
+        #title{
+            text-align: center;
+            width: 100%;
+            padding: 2px;
+            color: white;
+            background-color: rgb(232, 89, 89);
+        }
+        h1+div{
+            text-align: center;
+            font-size: 20px;
+        }
+        input{
+            outline: none;
+            font-size: 20px;
+        }
+        #movies{
+            width: 40%;
+        }
+        #display{
+            width: 90%;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            margin-top: 20px;
+            padding: 10px;
+        }
+        #display>div:nth-child(1){
+            width: 25%;
+        }
+        #display>div:nth-child(2){
+            width: 70%;
+        }
+        #submit{
+            border: none;
+            background-color: rgb(232, 89, 89);
+            padding: 3px 6px;
+            color: white;
+        }
+        #load{
+            margin-left: 600px;
+            margin-top: 100px;
+        }
+        #notfound{
+            text-align: center;
+        }
+    </style>
+    <link rel="stylesheet" href="movies.css">
+</head>
+<body>
+    <h1 id="title">Search for Movies Info</h1>
+    <div>
+        <form action="">
+            <label for="">Search Movies</label>
+            <input type="text" name="" id="movies">
+            <input id="submit" type="submit">
+        </form>
+    </div>
+    <img src="" alt="" class="emp">
+    
+</body>
+</html>
+<script>
+    document.querySelector("form").addEventListener("submit", search);
+
+    let empty = document.querySelector(".emp");
+    function search(e){
+        e.preventDefault();
+        let movieName = document.querySelector("#movies");
+        if(movieName.value===""){
+            return false;
+        }
+        let url = "https://www.omdbapi.com/?i=tt3896198&apikey=ff718965";
+        fetch(url+"&t="+movieName.value)
+        .then((res)=>res.json())
+        .then((data)=> {
+            displayMovie(data)})
+        .catch((err)=>{
+            empty.src="https://cdn.pixabay.com/photo/2013/11/28/11/30/cardboard-box-220256_960_720.jpg";
+            empty.style.width="450px";
+            empty.style.marginLeft="500px";
+            console.log(err)
+        });
+    }
+    let display = document.createElement("div");
+    function displayMovie(data){
+        display.innerHTML=null;
+        let ratings = +(data.Ratings[0].Value);
+        empty.src="";
+        display.setAttribute("id","display");
+        let imgdiv = document.createElement("div");
+        let textdiv = document.createElement("div");
+        let title = document.createElement("h1");
+        title.innerText = data.Title;
+        let year = document.createElement("h3");
+        year.innerText = data.Year;
+        let Released = document.createElement("h4");
+        Released.innerText = data.Released;
+        let duration = document.createElement("h4");
+        duration.innerText = data.Runtime;
+        let genre = document.createElement("h4");
+        genre.innerText = data.Genre;
+        let des = document.createElement("p");
+        des.innerText = data.Plot;
+        let rat = document.createElement("h3");
+        rat.innerText = data.Ratings[0].Value;
+        let img = document.createElement("img");
+        img.src = data.Poster;
+        img.style.width="100%";
+        let reccom = document.createElement("button");
+        reccom.innerText="Reccomended";
+        reccom.style.border="none";
+        reccom.style.padding="5px";
+        reccom.style.backgroundColor="green";
+        reccom.style.color="white"
+        imgdiv.append(img);
+        if( eval(data.Ratings[0].Value)*10 > 8.5){
+            textdiv.append(title,year,Released,duration,genre,des,rat,reccom);
+        }else{
+            textdiv.append(title,year,Released,duration,genre,des,rat);
+        }
+        display.append(imgdiv, textdiv);
+        document.querySelector("body").append(display);
+        console.log(data)
+    }
+</script>
+    

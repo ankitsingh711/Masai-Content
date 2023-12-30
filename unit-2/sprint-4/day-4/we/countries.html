@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countries</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+
+        .cont{
+            margin: auto;
+            width: 90%;
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            column-gap: 10px;
+            row-gap: 10px;
+            margin-top: 20px;
+        }
+        .cont>div{
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            text-align: center;
+        }
+        .cont>div>img{
+            border-bottom: 5px solid grey;
+        }
+
+        @media all and (min-width:600px) and (max-width:1000px){
+            .cont{
+                grid-template-columns: repeat(2,1fr);
+            }
+        }
+
+        @media all and (min-width:100px) and (max-width:599px){
+            .cont{
+                grid-template-columns: repeat(1,1fr);
+            }
+        }
+        body{
+            margin: 0px;
+            padding: 0px;
+        }
+        #head{
+            background-color: teal;
+            color: white;
+        }
+        body{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="head">
+        <h1>Countries</h1>
+    </div>
+    <label for="country">Filter by region</label>
+    <select name="country" id="filter">
+        <option value="">Select Region</option>
+        <option value="Asia">Asia</option>
+        <option value="Americas">Americas</option>
+        <option value="Africa">Africa</option>
+        <option value="Oceania">Oceania</option>
+        <option value="Antarctic">Antarctic</option>
+    </select>
+    <label for="">Sort By Population</label>
+    <select name="" id="sort">
+        <option value="">Select Category</option>
+        <option value="High to Low">High to Low</option>
+        <option value="Low to High">Low to High</option>
+    </select>
+    <div class="cont"></div>
+</body>
+</html>
+<script>
+    let url = "https://restcountries.com/v3.1/all";
+    let bag;
+    async function getData(){
+        try{
+            let res = await fetch(url);
+            let out = await res.json();
+            bag = out;
+            displayCard(out);
+        }
+        catch(err){
+            console.log(err);
+        }
+    }
+    getData()
+
+    let cont = document.querySelector(".cont");
+    function displayCard(out){
+        cont.innerHTML=null;
+        out.forEach((elem)=>{
+            let div = document.createElement('div');
+            let img = document.createElement("img");
+            img.style.width="100%"
+            img.src = elem.flags.png;
+            let name = document.createElement("h2");
+            name.innerText = "Name:"+" "+elem.name.common;
+            let population = document.createElement("h4");
+            population.innerText= "Population:"+" "+elem.population;
+            let reg = document.createElement("h4");
+            reg.innerText = "Region:"+" "+elem.region;
+            let cap = document.createElement("h4");
+            cap.innerText = "Capital:"+" "+elem.capital;
+            div.append(img,name,population,reg,cap);
+            let cont = document.querySelector(".cont");
+            cont.append(div)
+        })
+    }
+    let filter = document.querySelector("#filter");
+    filter.addEventListener("change", filterCountry);
+
+    function filterCountry(){
+        let val = filter.value;
+        if(val===""){
+            displayCard(bag);
+        }else{
+            let filterData = bag.filter((elem)=>{
+                return elem.region === val;
+            })
+            displayCard(filterData);
+        }
+    }
+
+    let sort = document.querySelector("#sort");
+    sort.addEventListener("change", sortCountry);
+
+    function sortCountry(){
+        if(sort.value===""){
+            displayCard(bag)
+        }else{
+            if(sort.value==="High to Low"){
+                bag.sort((a,b)=>{
+                    return b.population - a.population;
+                })
+                displayCard(bag);
+            }else{
+                bag.sort((a,b)=>{
+                    return a.population - b.population;
+                })
+                displayCard(bag);
+            }
+        }
+        
+    }
+</script>

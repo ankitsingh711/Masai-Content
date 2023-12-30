@@ -1,0 +1,14 @@
+{
+  "name": "clear",
+  "version": "1.0.0",
+  "description": "this is my first app from node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ankit singh",
+  "license": "ISC",
+  "dependencies": {
+    "is-this-palindrome": "^1.0.1"
+  }
+}

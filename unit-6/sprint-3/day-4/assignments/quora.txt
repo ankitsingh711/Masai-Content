@@ -1,0 +1,55 @@
+                                                        Quora System Design
+
+1. Features of Quora: 
+
+--> Follow
+        Users
+        Questions
+        Topics
+
+--> Topics 
+--> News feed
+        Relevance based on connections users/topics
+        Time Decay
+        Popular  
+--> Search 
+--> Create a question
+--> Answer a question
+--> Comments/replica
+--> Upvotes + Downvotes
+--> Multimedia
+
+
+2. Estimating the scale:
+
+# users --> 200 M users
+    * Daily active users(DAU) --> let's say 10% of users use so it becomes 20M users
+    * Monthly active users(MAU) --> let's say 5 - 12 % it becomes 
+    * 10M questions / Daily
+    * Answers / day ---> In which we have 8M questions which is not active and 2M question will be active
+
+3. Storage Requirements:
+    * Question --> text(100MB)
+    * Tags(links), (image(s)), video(s)
+    100 * 200B --> 200MB --> 2GB
+    answer / day --> 50M * 500B --> 2500MB --> 25GB
+    40GB / day is being created so
+    40 GB * 365 * 10 ---> 145 TB for 10 years
+    Let's say one machine supports 5TB of data then :
+    145 / 5 --> 30 machines / 0.6 ---> 50 machines  
+
+    Master Database will have some slave database so that master db slow downs then we can use slaves to get the data out of it and slaves will have data copied from master database.
+
+
+4. Questions per second(QPS)
+    writes 60M / 24 * 60 * 60   per second ----> 700 queries per seconds for write operation. Let' say 1400 writes per second 
+
+    2.5B / 24 * 60 * 60 = B / 60 * 60 = 40R OPS 
+
+
+
+System Design Diagram ----> https://drive.google.com/file/d/1gw7A1L95JiIDfp9uiZeVYWX0MxoexIkC/view?usp=sharing
+
+
+
+

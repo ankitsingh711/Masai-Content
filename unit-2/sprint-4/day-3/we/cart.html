@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+            margin: 0px;
+            padding: 0px;
+        }
+        #main{
+            width: 90%;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            row-gap: 10px;
+            column-gap: 10px;
+        }
+        #search{
+            font-size:17px;
+            outline: none;
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+
+        @media screen and (min-width:600px) and (max-width:1000px){
+            #main{
+                display:grid ;
+                grid-template-columns: repeat(2,1fr);
+            }
+        }
+
+        @media screen and (min-width:100px) and (max-width:599px){
+            #main{
+                display:grid ;
+                grid-template-columns: repeat(1,1fr);
+            }
+        }
+
+        #heading{
+            width: 100%;
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: space-around;
+        }
+        a{
+            text-decoration: none;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="heading">
+        <div>
+            <a href="Products.html">
+                <h2>Home</h2>
+            </a>
+        </div>
+        <div>
+            <a href="cart.html">
+                <h2>Go to Cart &rarr;</h2>
+            </a>
+        </div>
+    </div>
+    <h2 id="price"></h2>
+    <div id="main"></div>
+</body>
+</html>
+
+<script>
+    let cartArr = JSON.parse(localStorage.getItem("cart"));
+
+    let total = cartArr.reduce((acc,elem)=>{
+        return acc+elem.price;
+    },0)
+    let price = document.querySelector("#price");
+    price.innerText="Total Price is:"+"Rs."+total;
+    
+    function displayFav(cartArr){
+        cartArr.forEach((elem)=>{
+            let div = document.createElement("div");
+            div.style.boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px";
+            div.style.padding="10px";
+            div.style.textAlign="center";
+            let image = document.createElement("img");
+            image.src=elem.image;
+            image.style.width="100%"
+            let title = document.createElement("h3");
+            title.innerText = elem.title;
+            let price = document.createElement("h4");
+            price.innerText = "Rs."+elem.price;
+            let rating = document.createElement("h4");
+            rating = elem.rating.rate;
+            let des = document.createElement("p");
+            des.innerText = elem.description;
+            div.append(image,title,price,rating,des);
+            main.append(div);
+        })
+    }
+    displayFav(cartArr);
+</script>

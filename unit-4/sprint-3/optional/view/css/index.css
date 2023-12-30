@@ -1,0 +1,62 @@
+body{
+    margin:0px;
+    padding:0px;
+}
+
+nav{
+    width: 100%;
+    display: flex;
+    background-color: black;
+}
+
+nav>a{
+    text-decoration: none;
+    color: white;
+    margin-left: 10px;
+    padding: 5px;
+    font-family: sans-serif;
+    font-size: 18px;
+}
+
+.txt{
+    margin-left: 20px;
+}
+
+form{
+    width: 26%;
+    margin: auto;
+    margin-top: 50px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 20px;
+}
+
+form input,select{
+    width: 80%;
+    margin-left: 20px;
+}
+
+form label{
+    font-size: 19px;
+}
+
+#login{
+    padding: 5px 10px;
+    border: none;
+    background-color: black;
+    color: white;
+    margin-left: 20px;
+}
+
+#singup{
+    padding: 5px 10px;
+    border: none;
+    background-color: black;
+    color: white;
+    margin-left: 20px;
+}
+
+#loginhead{
+    margin-left: 130px;
+    font-weight: bold;
+    font-size: 22px;
+}

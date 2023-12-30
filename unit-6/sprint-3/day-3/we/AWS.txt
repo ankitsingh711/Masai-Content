@@ -1,0 +1,13 @@
+AWS ( Amazon Web Service )
+
+Cloud Computing --> Using the shared resources VMWare
+
+EC2, S3, RDBMS
+
+spike in your load --> need another VM
+
+application server scaling, loadbalancer, redis, cdn, sql, mongodb, queue, replica, Design
+
+EC2(Elastic Cloud Computing ) that;s why we called as EC2.
+
+EC2, ELB, Memaacached, CloudFront, RDS, DynamoDb, SQS, RouteS3

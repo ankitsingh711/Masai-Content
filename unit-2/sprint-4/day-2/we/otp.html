@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>OTP </title>
+    <style>
+        .otp{
+            width:30%;
+            margin: auto;
+            margin-top: 230px;
+            padding: 50px 20px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            text-align: center;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="otp">
+        <form action="">
+            <label for="">Enter OTP</label><br><br>
+            <input id="otp" type="number"><br><br>
+            <input type="submit">
+        </form>
+        <span id="msg"></span>
+    </div>
+</body>
+</html>
+<script>
+    document.querySelector("form").addEventListener("submit", otp);
+    let msg = document.querySelector("#msg");
+    function otp(e){
+        e.preventDefault();
+        let value = document.querySelector("#otp").value;
+        let promise = new Promise((res, rej)=>{
+            if(value==="1234"){
+                res("Your OTP is correct");
+            }else{
+                rej("Invalid OTP");
+            }
+        })
+        promise.then((value)=>{
+            msg.innerText = value;
+        }).catch((value)=>{
+            msg.innerText = value;
+        });
+    }
+</script>

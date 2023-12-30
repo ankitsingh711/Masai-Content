@@ -1,0 +1,12 @@
+{
+  "name": "you",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsc src/1.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

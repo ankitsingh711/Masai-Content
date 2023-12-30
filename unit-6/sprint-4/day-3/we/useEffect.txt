@@ -1,0 +1,9 @@
+useEffect -> 
+// side-effects
+    a. API Call
+    b. document.title = "";
+    // setTimeout, setIntervals
+
+    // Mounting
+    // Updating
+    // Unmounting

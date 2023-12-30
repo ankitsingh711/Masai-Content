@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Query</title>
+    <style>
+        .container{
+            display: grid;
+            margin: auto;
+            grid-template-areas: "one one one one  "
+                                "two three four five";
+            gap: 10px;
+            row-gap: 30px;
+        }
+        .container>div:nth-child(1){
+            grid-area: one;
+            background-color: yellow;
+            font-size: 50px;
+            column-gap: 50px;
+            height: 80px;
+        }
+
+        .container>div:nth-child(1)~div{
+            height: 300px;
+        }
+
+        .container>div:nth-child(2){
+            grid-area: two;
+            background-color: red;
+        }
+
+        .container>div:nth-child(3){
+            grid-area: three;
+            background-color: green;
+        }
+
+        .container>div:nth-child(4){
+            grid-area: four;
+            background-color: blue;
+        }
+
+        .container>div:nth-child(5){
+            grid-area: five;
+            background-color: gray;
+        }
+
+        @media screen and (min-width:601px) and (max-width:1000px){
+            .container{
+                grid-template-areas: "one one "
+                                    "two three"
+                                    "four five";
+            }
+        }
+
+        @media screen and (min-width:100px) and (max-width:600px){
+            .container{
+                grid-template-areas: "one"
+                                    "two"
+                                    "three"
+                                    "four"
+                                    "five";
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>Navigation</div>
+        <div>Box-1</div>
+        <div>Box-2</div>
+        <div>Box-3</div>
+        <div>Box-4</div>
+    </div>
+</body>
+</html>

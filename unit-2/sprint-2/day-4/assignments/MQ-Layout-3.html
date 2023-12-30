@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MQ-Layout-3</title>
+    <style>
+        .container{
+            margin: auto;
+            display: grid;
+            grid-template-areas: "yellow yellow yellow"
+                                "red red green1"
+                                "red red green2"
+                                "red red green3";
+            row-gap: 10px;
+            column-gap: 10px;
+
+        }
+        .container>div:nth-child(1){
+            height: 70px;
+            background-color: yellow;
+            grid-area: yellow;
+        }
+
+        .container>div:nth-child(2){
+            height: 500px;
+            background-color: red;
+            grid-area: red;
+        }
+
+        .container>div:nth-child(3){
+            background-color: green;
+            grid-area: green1;
+        }
+
+        .container>div:nth-child(4){
+            background-color: green;
+            grid-area: green2;
+        }
+
+        .container>div:nth-child(5){
+            background-color: green;
+            grid-area: green3;
+        }
+
+        .container>div:nth-child(2)~div{
+            height: 160px;
+        }
+
+        @media screen and (min-width:601px) and (max-width:1000px){
+            .container{
+                grid-template-areas: "yellow yellow yellow"
+                                "red red red"
+                                "green1 green2 green2";
+            }
+        }
+
+        @media screen and (min-width:100px) and (max-width:600px){
+            .container{
+                grid-template-areas: "yellow"
+                                "red"
+                                "green1"
+                                "green2"
+                                "green3";
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>Navigation</div>
+        <div>Left Box</div>
+        <div>Right Box-1</div>
+        <div>Right Box-2</div>
+        <div>Right Box-3</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<----- Playo Low-Level-Design ----->
+
+// <------- Entities -------->
+
+User will have keys
+** name 
+** age
+** type
+
+Users Behaviour or the Constructor
+
+** setName(string):void
+** getName(): string
+
+<------ Slots ------->
+** id: id of the User
+** slot: available or not 
+** game: which game user want to Playo
+
+<--- Payments ------>
+** Different-different payment methods added
+** CREDIT, DEBIT, UPI, NET_BANKING
+
+<------ Tutorial Entities -------->
+ 

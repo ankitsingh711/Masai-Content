@@ -1,0 +1,71 @@
+
+Authentication: 
+
+
+--> Role based Access Control :
+
+Based on the role of the client we weill provide the access to the client
+
+--> Cookies :
+
+//Set Cookies ---> uses the same domain, can configure domain, time, httponly
+
+* Install cookie-parse and require it.
+* We can set any cookie by res.cookie(key, value);
+* We can get the cookie by req.cookie.key;
+* When user is going to make a request at the particular domain then only cookies will be set.
+
+* Cookies:
+1. key
+2. value
+3. maxAge: like expiresIn
+4. {httpOnly: true}--> can't be access in the browser
+
+api.masaischool.com
+
+--> Sending masaischool
+
+SMTP(Sending mail to the protocol) -> 
+
+* We have to use "nodemailer" package to send mail to the particular user.
+
+* It helps us to connect to the SMTP server and will send the mail using that only.
+
+* Fake mail websites: https://ethereal.email/login
+
+username : noe5@ethereal.email
+password : a6EBuwtbRswpzyFVBm
+
+from : 
+to:
+subject:
+greeting: 
+
+// Indexing  ?
+
+1 2 3 4 5 6 7 8 9 10 11
+Time complexity : O(1), log n 
+
+Id is indexed by default in mongodb
+
+Can we create indexex ?
+Yes
+
+Aadhar card DB using mongodb_id: "asdfgh",
+"name":"jakka",
+"aadhar_no: "",
+"phone_no": "afdf",
+address: "",
+dob: "",
+biometric: "",
+father's name: ""
+
+aadhar no : "" -> index
+
+Masai Example 
+
+Evaluation:
+O-Authentication
+Sending mail
+
+Indexing --> 

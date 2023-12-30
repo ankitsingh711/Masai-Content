@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaccinate</title>
+    <style>
+        body{
+        padding: 0px;
+        margin: 0px;
+        }
+        thead{
+            background-color: teal;
+            color: white;
+            font-size: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+        table{
+            width: 80%;
+            margin: auto;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+        #filter{
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        #filter select{
+            width: 150px;
+        }
+        #nav{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            font-size: 20px;
+            background-color: black;
+            padding: 8px;
+            color: white;
+        }
+        #links{
+            display: flex;
+            justify-content: space-evenly;
+            width: 30%;
+            align-items: center;
+        }
+        a{
+            color: white;
+            text-decoration: none;
+        }
+        tbody{
+            text-align: center;
+        }
+
+        tbody>tr:nth-child(even){
+            background-color: teal;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="nav">
+        <div id="masai">
+            <img src="https://lwfiles.mycourse.app/masai-school-public/283427801ef0376bad3f197fad544f38.png" alt="masai logo" width="100px">
+        </div>
+        <div id="links">
+            <a href="Registration.html">Home</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="Vaccinated.html">Vaccinated</a>
+        </div>
+    </div><br>
+    <div id="filter">
+        <label for="">Filter By Vaccine</label>
+        <select name="" id="vaccine">
+        <option value="">Select Vaccine</option>
+            <option value="">Covishield</option>
+            <option value="">Covaxin</option>
+            <option value="">Sputnik</option>
+        </select>
+        <label for="">Filter By Age</label>
+        <select name="" id="vaccine">
+            <option value="">Select Age</option>
+            <option value="">Low to High</option>
+            <option value="">High to Low</option>
+        </select>
+        <label for="">Filter By Priority</label>
+        <select name="" id="prior">
+            <option value="">Select Priority</option>
+            <option value="">p0</option>
+            <option value="">p1</option>
+            <option value="">p2</option>
+            <option value="">p3</option>
+        </select>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>Name</td>
+                <td>Age</td>
+                <td>Designation</td>
+                <td>Priority</td>
+                <td>Vaccine</td>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+</body>
+</html>
+
+<script>
+    let vaccinedData = JSON.parse(localStorage.getItem("vaccination-done"));
+    let tbody = document.querySelector("tbody");
+    function displayTable(data){
+        tbody.innerHTML = null;
+        data.forEach((elem,index)=>{
+            let body = document.querySelector("tbody");
+            let tr = document.createElement("tr");
+            let td1 = document.createElement("td");
+            td1.innerText = elem.id;
+            let td2 = document.createElement("td");
+            td2.innerText = elem.name;
+            let td3 = document.createElement("td");
+            td3.innerText = elem.age;
+            let td4 = document.createElement("td");
+            td4.innerText = elem.design;
+            let td5 = document.createElement("td");
+            td5.innerText = elem.prior;
+            let td6 = document.createElement("td");
+            td6.innerText = elem.vacc;
+            tr.append(td1,td2,td3,td4,td5,td6);
+            body.append(tr);
+        })
+    }
+
+    displayTable(vaccinedData);
+
+
+    let filterVaccine = document.querySelector("#vaccine")
+    filterVaccine.addEventListener("change", filterTaskVacc);
+    function filterTaskVacc(){
+        if(filterVaccine.value==="Select Vaccine"){
+            displayTable(vaccinedData)
+        }else{
+            let filterdatavacc = vaccinedData.filter((elem)=>{
+                return elem.vacc == filterVaccine.value;
+            })
+            displayTable(filterdatavacc);
+        }
+    }
+
+    let filterPrior = document.querySelector("#prior");
+    filterPrior.addEventListener("change", ()=>{
+        if(filterPrior=="Select Priority"){
+            displayTable(vaccinedData);
+        }else{
+            let filterPriority = vaccinedData.filter((elem)=>{
+                return elem.prior == filterPrior.value;
+            })
+            displayTable(filterPriority);
+        }
+    })
+
+</script>

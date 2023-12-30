@@ -1,0 +1,15 @@
+Write the steps down for the following problem - 10 mins
+You need to create 10 servers which you need to clone a certain github repository and run a project on node, which is running its production environment on pm2
+You are expecting 50,000 users to connect to the system at the same time and you have only 10 servers. How would you go about managing load for such a system using AWS services
+write detailed steps down and explain
+
+<-------- Solution ---------->
+
+Step-1: Requirements :-
+    1. AWS Account 
+    2. 10 Instance or we can say-10 servers.
+    3. We have to setup the load balancer using group which aws providers.
+
+Step 2 :- Function or mapping of how we will handle the 10k people or users  at a  same time =>
+                as if there is one server so it will be very bad interface or contact with the applicatio to handle this much amount of request using single server. so there should be more than 1 server , or required server which can help to attent different request at same time, so by adding 10 servers , we can take every request to different server using load balancer so what load balancer does:-
+                    it automatically distributes incoming application traffic to different servers one by one parallelly , and scales resources to meet demands. load balancer helps to make network healthy.

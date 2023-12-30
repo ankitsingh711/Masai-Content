@@ -1,0 +1,10 @@
+Question - 1: What is framework / library ?
+Solution : The framework or library is created upon the vanilla language and it is used to make building more easy because it provides you the tempelate and you have to just work upon it.
+
+
+
+** Difference between library and framework ?
+Solution -> Framework provides the structure and developer have to follow the structure to build the applications.
+
+library provides us a tool and you do not have to follow a particular structure to build the websites.
+

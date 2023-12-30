@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mini Application</title>
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+  </head>
+  <body>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/signup">SignUp</a>
+      <a href="/login">Login</a>
+    </nav>
+
+    <!---- Signup Form starts here  -->
+
+    <form id="formSignup" action="signup" method="post">
+      <label for="" id="loginhead">SignUp Page</label><br /><br />
+      <label class="txt" for="">Username:</label><br />
+      <input
+        type="text"
+        placeholder="Type Your username"
+        name="username"
+      /><br /><br />
+      <label class="txt" for="">Email:</label><br />
+      <input
+        type="email"
+        placeholder="Type Your Email"
+        name="email"
+      /><br /><br />
+      <label class="txt" for="">Date of Birth:</label><br />
+      <input type="date" id="date" name="dob" placeholder="Type Your DOB" /><br /><br />
+      <label class="txt" for="">Role:</label><br />
+      <select name="role">
+        <option value="">Select Role</option>
+        <option value="Admin">Admin</option>
+        <option value="Explorer">Explorer</option></select
+      ><br />
+      <label class="txt" for="">Location:</label><br />
+      <input
+        type="text"
+        placeholder="Type Your Location"
+        name="location"
+      /><br /><br />
+      <label class="txt" for="">Password:</label><br />
+      <input
+        type="password"
+        name="password"
+        placeholder="Type Your Password"
+      /><br /><br />
+      <label class="txt" for="">Confirm Password:</label><br />
+      <input
+        type="password"
+        name="confirm_password"
+        id="confirmPassword"
+        placeholder="Confirm Your Password"
+      /><br /><br />
+      <input id="login" type="submit" value="SignUp" />
+    </form>
+  </body>
+</html>

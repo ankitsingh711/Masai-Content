@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Pe</title>
+    <style>
+        #paym{
+            width: 100%;
+        }
+        #paym{
+            width: 30%;
+            margin: auto;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            align-items: center;
+            text-align: center;
+            padding: 50px;
+            margin-top: 170px;
+        }
+
+        input{
+            outline: none;
+            font-size: 17px;
+        }
+
+        #submit{
+            border: none;
+            padding: 3px 15px;
+            background-color: red;
+            color: white;
+        }
+        h1{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Phone Pe Payment</h1>
+    <div id="paym">
+        <div>
+            <label for="">ENTER OTP</label><br><br>
+            <input id="otp" placeholder="Enter 1234 for Succes" type="number"><br><br>
+            <input  id="submit" type="submit">
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    let submit = document.querySelector('#submit');
+    submit.addEventListener("click", success);
+
+    function success(){
+        let otp = document.querySelector("#otp");
+        let promiseOTP = new Promise((res,rej)=>{
+            if(otp.value==""){
+                alert("Enter the OTP");
+                return
+            }
+            if(otp.value==="1234"){
+                res("Payment Success");
+            }else{
+                rej("Wrong OTP");
+            }
+        })
+        promiseOTP
+        .then((val)=>{
+            alert(val);
+            window.location.href="success.html"
+        })
+        .catch((err)=>alert(err));
+    }
+</script>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mini Application</title>
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+  </head>
+  <body>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/signup">SignUp</a>
+      <a href="/login">Login</a>
+    </nav>
+
+    <!-- Login Form starts here  -->
+
+    <form id="formLogin" action="login" method="post">
+      <label for="" id="loginhead">Login Page</label><br /><br />
+      <label class="txt" for="">Username:</label><br />
+      <input id="user" name="username" type="text" placeholder="Type username" /><br /><br />
+      <label class="txt" for="">Password:</label><br />
+      <input
+        id="password"
+        type="password"
+        name="password"
+        placeholder="Type Your Password"
+      /><br /><br /><br />
+      <input id="login" type="submit" value="Login" />
+    </form>
+  </body>
+</html>

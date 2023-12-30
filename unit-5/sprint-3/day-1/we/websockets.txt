@@ -1,0 +1,58 @@
+Delievery App ---> 4 hours 
+
+Frontend of that application 
+    1. Order us placed 
+    2. Order Status -- /orderstatus
+
+    ["placed", "rejected", "just out for the Delievery", "On the way", "closer to your home", "waiting outside your door", "delievered"]
+
+    11:41 Am / orderstatus --> Placed 
+
+    12:30 /orderstatus --> "waiting outside your door".
+
+    ---> We will make a request at /orderstatus and we will get one of the status from the array which is being returned by the /orderstatus 
+
+    API /orderstatus 
+
+    Waiting outside your door:
+    1. Frontend ==> "Updated Status" --> API request ==/orderstatus.
+    2. setInterval --> 5 mins --> API request - /orderstatus
+    3. setInterval - 1 sec --> API request -/orderstatus
+        a) load on the client
+        b) load on the server
+    4. setInterval --> 1 hour -> API request -/orderstatus
+
+
+1) Short Pulling --> Making a API request repaeatedlly in a short period of time.
+* It is inefficient because it requires client to maek a request even when there is no update/no new data.
+* It will put a strain on the server, when there are many clients making a request continuously at same time.
+
+
+2) Long Pulling --> 
+* Advantages : The burden on the server will be less.
+*Disadvantages: It's the waste of time becaus eit will take a lot of time for one request.
+
+3) Websockets 
+Communication Protocol that enables two-waty communication b/w clienbt and serverover a single, long-lived connection
+Unlike traditional http, which is req-res based and requires a new connection for every transaction allows for a realtime, bi-dirctional communication b/w client and server.
+
+E.g -->
+1) Real time application/ live status -live location, cricket score, stock market
+2) Multi-Player real time gaming applications - tic tac toe
+3) Chat Applications 
+
+
+Advantages of the Websockets:
+
+1. Latency ---> 
+2. More Efficient
+
+Disadvantages of the Web Sockets:
+1. Limited support in very browsers.
+2. Complexity --> It's a bit complex to implement because based on each event. It requires more complex code than normal http req-res implementation
+
+
+
+
+
+

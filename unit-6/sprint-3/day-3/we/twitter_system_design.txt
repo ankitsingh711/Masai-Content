@@ -1,0 +1,71 @@
+<----------- Design a twitter ( Social Media Applications ) ---------------->
+
+Requirements: 
+
+---> Functional Requirements
+* User Managements ( adding/deleting users)
+* Posting tweets, Edit tweets and adding hashtags 
+* Like / Comment / Retweet tweets 
+* Search people in the platrform
+* Following other people on the other platform 
+* DM to other users 
+* Create timeline with posts( newsfeed )
+* Fetch the tweets of a particular person
+* Notifications
+* Trending hashtags 
+* Word limit for a tweet
+
+---> Non-Functional Requirements
+
+* Adding blue tick for the users
+* limiting the images/video size in the posts
+* Twitter threads 
+
+<----- Capacity Estimation -------->
+
+users ----> 10 million users / day
+new tweets --> 1 million / day
+timeline usage --> 20 million timelines reads / day
+1 tweet -> 100 bytes * 1 million --> 100 GB --> 36TB 
+
+sharding --> share based on the shard key
+
+
+API Design
+
+/tweets
+/timelines
+
+
+Schema Design 
+
+* We can use SQL/RDBMS to store relation b/w usets.
+* We can store tweets and metadata related to media NoSQL.
+* We can store Media files in a S3 System.
+
+user -> user1, user2, user3
+user's timeline 
+
+Partitioning / Sharding of Data 
+* Based on UserId -> Con of using this method -> It leads to create hotspots 
+* Tweet ID ( auto incremental ) + Timestamp = UID
+(main tweet) ----> {}, {}, {}
+
+tweet pushing this tweet ---> all the followwers timelines through cache
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+,
+
+

@@ -1,0 +1,62 @@
+# Workflow 
+# YML -> YML is a markup language 
+
+# read and understand a series of steps or operations
+# this can be read by the machine to automate tasks 
+
+# key values 
+
+Title: "Website Name"
+description: A website for uploading contents
+
+tags:
+  -technology
+  -images
+  -creative 
+
+#Indentation matter 
+#spaces
+
+#objects
+address:
+  street: Road Number-9
+  city: Patna
+  State: Bihar
+
+#Github action
+#env varibales
+value: ${{ env.VALUE }}
+variable: ${{ github.VARIBALE_NAME }}
+# Configuration File
+# github
+# doker 
+
+# When to run
+#on -> when to trigger the workflow, on push to codebase, raising a pr to codebase 
+
+# How to run
+# jobs -> a task that can be run
+# Define a series of steps inside a job to execute the workflow
+# steps: a sequence   of tasks or actions that make up a job.
+
+name: My Application
+on: 
+  push:
+    branches:
+      -main
+    pull_request:
+      branches:
+        -main
+
+name: Github action ofr
+on:
+  push:
+    branches: [main]
+  jobs: 
+    build:
+      runs-on: ubuntu-latest
+      steps: 
+        -uses: actions/checkout@v2 
+        -name: Print Hello World
+        -run: echo "Hello World!"
+

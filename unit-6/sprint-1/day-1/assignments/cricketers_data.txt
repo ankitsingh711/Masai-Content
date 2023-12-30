@@ -1,0 +1,10 @@
+Batsman_Name
+Batsman_Order (1,2,3 etc.)
+Player_Type (Batsman, Bowler, All Rounder etc.)
+Runs_Scored (Total runs scored till date)
+Debut_Year
+City (Example Virat Kohli belongs to Delhi).
+
+1.We can INSERT the the new batman data into the table with the help of INSERT query in the SQL query. 
+2. We can update the data of the particular batman with the help of UPDATE keyword in SQL quesry.
+3. We can even delete the row with the help of DELETE from keyword by putting some condition into that.

@@ -1,0 +1,47 @@
+<-------- Movie theatre -------> 
+
+Step-1 : Goals and Requirements:
+    a. Different Cities Option
+    b. user should be able to book tickets
+    c. user should be able to select the particular time
+    d. user should book as many as tickets they wants
+    e. user should get the confirmation on their respective emails and contact information they had provided
+    f. ticket should be booked
+    g. user should be able to rate the movie. On the scale of 
+
+Step-2 : Movie theatre contact theatres:
+    a. app will talk to the theatres after the ticket is confirmed 
+    b. movie theatres will also have to register on the particular websites
+    c. whenever one user will book ticket then of the particular movie theatre then the movie theatre which is registered will get a notification that this or that seats has been locked.
+
+Step-3
+    We can use load balancer to decrease the load on the server":
+    Methods are:
+        a. Consistent hashing
+        b. round robin
+        d. least connection
+
+
+Step-4: Database ->
+    There are two types of database:
+        1. RDBMS
+        2. NoSQL
+We can use RDBMS or NoSQL accordin to how much data we are transferring in a certain amount of time. If we want to store the data in the relational database management system then we can use RDBMS and if we want that data will be in document format then we can use NoSQL databse like MongoDB.
+
+Tech Stacks Used :
+    1. Backend 
+        a. NodeJS
+        b. Redis for caching
+    2. Frontend :
+        a. JavaScript
+        b. HTML5
+        c. CSS
+        d. Bootstrap
+        e. Chakra UI
+    3. Database:
+        a. MongoDB
+        b. RDBMS ( MySQL )
+
+
+GitHub Repo Link ---> https://github.com/masai-course/ankit_singh_fp07_179/tree/master/unit-6/sprint-3/evaluation/LLD
+Recording Link ---> https://drive.google.com/file/d/1oTlhg0kgRJbPCCZ_NXrRLy_Zr6QSAvJu/view?usp=sharing

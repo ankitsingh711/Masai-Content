@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puppy likes</title>
+    <script src="https://kit.fontawesome.com/3f69d0abd1.js" crossorigin="anonymous"></script>
+    <style>
+        #main{
+            width: 50%;
+            margin: auto;
+        }
+        #main>img{
+            width: 40rem;
+        }
+        i{
+            font-size: 50px;
+        }
+        .fa-thumbs-up:hover{
+            color: blue;
+        }
+
+        .fa-thumbs-down:hover{
+            color: red;
+        }
+        #like{
+            margin: auto;
+            display: flex;
+            width: 30%;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <img src="https://img.freepik.com/free-psd/group-portrait-adorable-puppies_53876-73977.jpg?w=2000" alt="dog">
+    </div>
+    <div id="like">
+        <div>
+            <i class="fa-sharp fa-solid fa-thumbs-up"></i>
+            <h3 id="likecount"></h3>
+        </div>
+        <div>
+            <i class="fa-solid fa-thumbs-down"></i>
+            <h3 id="dislikecount"></h3>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    document.querySelector(".fa-thumbs-up").addEventListener("click",like)
+    document.querySelector(".fa-thumbs-down").addEventListener("click",dislike)
+
+    let like_count = localStorage.getItem("like")||0;
+    document.querySelector("#likecount").innerText=like_count+" "+"Likes";
+    function like(){
+        like_count++;
+        document.querySelector("#likecount").innerText=like_count+" "+"Likes";
+        localStorage.setItem("like",like_count)
+    }
+
+
+    let dislike_count = localStorage.getItem("dislike")||0;
+    document.querySelector("#dislikecount").innerText=dislike_count+" "+"Dislikes";
+    function dislike(){
+        dislike_count++;
+        document.querySelector("#dislikecount").innerText=dislike_count+" "+"Dislikes";
+        localStorage.setItem("dislike",dislike_count)
+    }
+</script>

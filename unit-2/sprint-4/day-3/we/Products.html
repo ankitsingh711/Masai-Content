@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <style>
+        body{
+            text-align: center;
+            margin: 0px;
+            padding: 0px;
+        }
+        #main{
+            width: 100%;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            row-gap: 10px;
+            column-gap: 10px;
+        }
+        #search{
+            font-size:17px;
+            outline: none;
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+
+        @media screen and (min-width:600px) and (max-width:1000px){
+            #main{
+                display:grid ;
+                grid-template-columns: repeat(2,1fr);
+            }
+        }
+
+        @media screen and (min-width:100px) and (max-width:599px){
+            #main{
+                display:grid ;
+                grid-template-columns: repeat(1,1fr);
+            }
+        }
+
+        #heading{
+            width: 100%;
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: space-around;
+        }
+        a{
+            text-decoration: none;
+            color: white;
+        }
+        #btn{
+            border: none;
+            padding: 5px 10px;
+            color: white;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="heading">
+        <div>
+            <a href="products.html">
+                <h2>Home</h2>
+            </a>
+        </div>
+        <div>
+            <a href="cart.html">
+                <h2>Go to Cart &rarr;</h2>
+            </a>
+        </div>
+    </div>
+    <label for="">Search Products</label>
+    <input id="search" type="text">
+    <label for="">Filter By Price</label>
+    <select name="" id="">
+        <option value="">Low to High</option>
+        <option value="">High to Low</option>
+    </select>
+    <div id="main"></div>
+</body>
+</html>
+
+<script>
+    let bag;
+    let url = "https://fakestoreapi.com/products";
+    fetch(url)
+    .then((res)=> res.json())
+    .then((data)=> {
+        bag = data;
+        displayProduct(data);
+    })
+    .catch((err)=>console.log(err));
+    let main = document.querySelector("#main");
+    function displayProduct(data){
+        main.innerHTML=null;
+        data.forEach((elem)=>{
+            let div = document.createElement("div");
+            div.style.boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px";
+            div.style.padding="10px";
+            div.style.textAlign="center";
+            let image = document.createElement("img");
+            image.src=elem.image;
+            image.style.width="60%"
+            let title = document.createElement("h3");
+            title.innerText = elem.title;
+            let price = document.createElement("h4");
+            price.innerText = "Rs."+elem.price;
+            let rating = document.createElement("h4");
+            rating = elem.rating.rate;
+            let des = document.createElement("p");
+            des.innerText = elem.description;
+            let addcart = document.createElement("button");
+            addcart.setAttribute("id","btn");
+            addcart.innerText = "Add to Cart";
+            addcart.addEventListener("click", ()=>{
+                addCart(elem);
+            })
+            div.append(image,title,price,rating,des,addcart);
+            main.append(div);
+        })
+    }
+
+    let cartArr=JSON.parse(localStorage.getItem("cart"))||[];
+    function addCart(elem){
+        alert("Product added to the cart")
+        cartArr.push(elem);
+        localStorage.setItem("cart",JSON.stringify(cartArr));
+    }
+
+    let search = document.querySelector("#search");
+    search.addEventListener("input", searchData);
+
+    function searchData(){
+        let value = search.value;
+        let inp_filter = bag.filter((elem)=>{
+            return elem.title.toLowerCase().includes(value.toLowerCase());
+        })
+        displayProduct(inp_filter);
+    }
+</script>

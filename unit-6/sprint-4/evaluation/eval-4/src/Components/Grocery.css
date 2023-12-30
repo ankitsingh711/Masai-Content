@@ -1,0 +1,17 @@
+.main{
+    width: 90%;
+    margin: auto;
+    /* border: 2px solid black; */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 10px;
+    row-gap: 10px;
+}
+
+.child-div {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.main img {
+    width: 100%;
+}

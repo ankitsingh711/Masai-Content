@@ -1,0 +1,11 @@
+AWS gives us a computer with a OS of our choice :-
+While creating the instance download the .pem file 
+    1. Git download --> sudo yum install git -y
+    2. Node --> 
+    3. Clone the repo --> git clone "repo link"
+
+Create a folder with .pem file 
+Click on connect button on the instance page and copy paste the example command
+
+Nano file name if editing file is required
+Node file name to start the server 

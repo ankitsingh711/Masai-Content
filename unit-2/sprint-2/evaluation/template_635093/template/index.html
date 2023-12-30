@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Web-111 C1 Evaluation</title>
+
+  <style>
+    body {
+      background-color: rgb(250, 250, 250);
+    }
+
+    .top{
+      margin: auto;
+      width: 90%;
+      display: flex;
+      justify-content: space-evenly;
+    }
+    .top>div:nth-child(1){
+      text-align: center;
+      padding:70px;
+      width: 45%;
+    }
+
+    .top>div:nth-child(1)>button{
+      padding:10px 15px;
+      color:white;
+      background-color:#4caf50;
+      border:none;
+    }
+    
+
+    .top>div:nth-child(2){
+      row-gap: 10px;
+      column-gap:10px;
+      width:35%;
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+    }
+
+    .top>div:nth-child(2)>div{
+      border-radius:8px;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      padding: 10px;
+    }
+
+    .mid{
+      width:90%;
+      margin:auto;
+    }
+
+    .mid>h1{
+      text-align: center;
+    }
+
+    .mid>div{
+      margin:auto;
+      display:flex;
+      justify-content: space-evenly;
+    }
+    .mid>div>div{
+      text-align: center;
+      width:27%;
+    }
+
+    .mid>div>div img{
+      width:80%;
+    }
+
+    .bottom{
+      padding:20px;
+      width:85%;
+      background-color: #e5f9f5;
+      margin:auto;
+    }
+
+    .bottom>div{
+      text-align: center;
+    }
+
+    .bottom>div:nth-child(2){
+      margin:auto;
+      width:80%;
+      display:grid;
+      grid-template-columns: repeat(3,1fr);
+    }
+
+    .bottom button{
+      background-color:#08ebbd;
+      padding: 10px 15px;
+      border:none;
+      color:white
+    }
+
+    .button>div:nth-child(3){
+      margin:auto;
+    }
+
+    .info{
+      width:90%;
+      margin:auto;
+      display:flex;
+      background-color:#00d09b;
+      border-radius:10px;
+      color:white;
+      justify-content: space-around;
+    }
+
+    .info>div:nth-child(1){
+      padding:100px;
+      width:65%;
+    }
+
+    .info>div:nth-child(2){
+      width:30%;
+    }
+
+    .info button{
+      border:none;
+      padding:10px 15px;
+      color:#00d09b;
+    }
+
+    .info>div:nth-child(2)>img{
+      width: 100%;
+    }
+
+
+    @media screen and (min-width:701px) and (max-width:1000px) {
+      .top{
+        flex-direction: column;
+      }
+
+      .top>div:nth-child(2){
+        width:90%;
+        margin:auto;
+        grid-template-columns: repeat(3,1fr);
+      }
+
+      /* mid parts */
+      .mid>div{
+        margin:auto;
+        width:100%;
+        flex-direction:column;
+      }
+
+      .mid>div>div{
+        width:60%;
+        margin:auto;
+      }
+
+      .mid>div>div img{
+        width:100%;
+      }
+
+      /* bottom sectiom */
+      .bottom>div:nth-child(2){
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      .info{
+        flex-direction: column;
+      }
+
+      .info>div:nth-child(2)>img{
+        width: 80%;
+      }
+      .info>div:nth-child(2){
+        width: 90%;
+        margin: auto;
+      }
+    }
+
+    @media screen and (min-width:100px) and (max-width:700px) {
+      .top{
+        flex-direction: column;
+      }
+
+      .top>div:nth-child(2){
+        width:90%;
+        margin:auto;
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      /* mid parts */
+      .mid>div{
+        margin:auto;
+        width:100%;
+        flex-direction:column;
+      }
+
+      .mid>div>div{
+        width:60%;
+        margin:auto;
+      }
+
+      .mid>div>div img{
+        width:100%;
+      }
+
+      /* bottom sectiom */
+      .bottom>div:nth-child(2){
+        grid-template-columns: repeat(1,1fr);
+      }
+
+      /* info */
+      .info{
+        flex-direction: column;
+      }
+
+      .info>div:nth-child(2)>img{
+        width: 80%;
+      }
+      .info>div:nth-child(2){
+        width: 90%;
+        margin: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="top">
+      <div>
+        <h1>Invest in IPOs</h1>
+        <h5>Trusted by millions of Indians. Start Now.</h5>
+        <button>GET STARTED</button>
+      </div>
+      <div>
+        <div>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Android_O_Preview_Logo.png/1024px-Android_O_Preview_Logo.png" alt="logo" width="30px">
+          <h3>Mutual Funds</h3>
+        </div>
+        <div>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Android_O_Preview_Logo.png/1024px-Android_O_Preview_Logo.png" alt="logo" width="30px">
+          <h3>Mutual Funds</h3>
+        </div>
+        <div>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Android_O_Preview_Logo.png/1024px-Android_O_Preview_Logo.png" alt="logo" width="30px">
+          <h3>Mutual Funds</h3>
+        </div>
+        <div>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Android_O_Preview_Logo.png/1024px-Android_O_Preview_Logo.png" alt="logo" width="30px">
+          <h3>Mutual Funds</h3>
+        </div>
+        <div>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Android_O_Preview_Logo.png/1024px-Android_O_Preview_Logo.png" alt="logo" width="30px">
+          <h3>Mutual Funds</h3>
+        </div>
+        <div>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Android_O_Preview_Logo.png/1024px-Android_O_Preview_Logo.png" alt="logo" width="30px">
+          <h3>Mutual Funds</h3>
+        </div>
+      </div>
+    </div>
+    <div class="mid">
+        <h1>Keep Learning and Keep Growing</h1>
+        <div>
+          <div>
+            <img src="https://assets-netstorage.groww.in/web-assets/billion_groww_desktop/prod/build/client/images/blog1.d3a78143.png" alt="image">
+            <h3>How tos elect/Picks stocks</h3>
+          </div>
+          <div>
+            <img src="https://assets-netstorage.groww.in/web-assets/billion_groww_desktop/prod/build/client/images/blog1.d3a78143.png" alt="image">
+            <h3>How tos elect/Picks stocks</h3>
+          </div>
+          <div>
+            <img src="https://assets-netstorage.groww.in/web-assets/billion_groww_desktop/prod/build/client/images/blog1.d3a78143.png" alt="image">
+            <h3>How tos elect/Picks stocks</h3>
+          </div>
+        </div>
+    </div>
+    <div class="bottom">
+      <div>
+        <h1>Discover Mutual Funds</h1>
+        <h5>Lorem ipsum dolor sit amet, consectetur adipisicing </h5>
+      </div>
+      <div>
+        <div>
+          <img src="https://storage.googleapis.com/groww-assets/mf-assets/web/collection/light/high_returns.svg" alt="logo">
+          <h4>lorem</h4>
+        </div>
+        <div>
+          <img src="https://storage.googleapis.com/groww-assets/mf-assets/web/collection/light/high_returns.svg" alt="logo">
+          <h4>lorem</h4>
+        </div>
+        <div>
+          <img src="https://storage.googleapis.com/groww-assets/mf-assets/web/collection/light/high_returns.svg" alt="logo">
+          <h4>lorem</h4>
+        </div>
+        <div>
+          <img src="https://storage.googleapis.com/groww-assets/mf-assets/web/collection/light/high_returns.svg" alt="logo">
+          <h4>lorem</h4>
+        </div>
+        <div>
+          <img src="https://storage.googleapis.com/groww-assets/mf-assets/web/collection/light/high_returns.svg" alt="logo">
+          <h4>lorem</h4>
+        </div>
+        <div>
+          <img src="https://storage.googleapis.com/groww-assets/mf-assets/web/collection/light/high_returns.svg" alt="logo">
+          <h4>lorem</h4>
+        </div>
+      </div>
+      <div>
+        <button>Explore All Mutual Funds</button>
+      </div>
+    </div>
+    <div class="info">
+      <div>
+        <h1>We are with you st every step</h1>
+        <h3>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, laboriosam.
+        </h3>
+        <button>GET IN TOUCH</button>
+      </div>
+      <div>
+        <img src="https://assets-netstorage.groww.in/web-assets/billion_groww_desktop/prod/build/client/images/mfSupportImg.0379d5a2.png" alt="phone logo" >
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

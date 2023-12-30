@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive</title>
+    <style>
+        .container{
+            display: grid;
+            grid-template-areas: "yellow yellow"
+                                "red green";
+            row-gap: 30px;
+            column-gap: 50px;
+        }
+        .container>div:nth-child(1){
+            font-size: 40px;
+            height: 100px;
+            background-color: yellow;
+            grid-area: yellow;
+        }
+        .container>div:nth-child(2){
+            font-size: 30px;
+            grid-area: red;
+            background-color: red;
+        }
+
+        .container>div:nth-child(3){
+            font-size: 30px;
+            grid-area: green;
+            background-color: green;
+        }
+        .container>div ~ div{
+            height: 400px;
+        }
+
+        @media screen and (min-width:100px) and (max-width:500px){
+            .container{
+                grid-template-areas: "yellow"
+                                    "red"
+                                    "green";
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>Navigation</div>
+        <div>Left Box</div>
+        <div>Right Box</div>
+    </div>
+</body>
+</html>

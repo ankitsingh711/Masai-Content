@@ -1,0 +1,29 @@
+[
+    {
+        "_id": 1,
+        "zipcode": "12345",
+        "city": "New York",
+        "state": "NY"
+     },
+     
+     {
+        "_id": 2,
+        "zipcode": "54321",
+        "city": "Chicago",
+        "state": "IL"
+     },
+     
+     {
+        "_id": 3,
+        "zipcode": "98765",
+        "city": "Los Angeles",
+        "state": "CA"
+     },
+     
+     {
+        "_id": 4,
+        "zipcode": "24680",
+        "city": "Miami",
+        "state": "FL"
+     }
+]

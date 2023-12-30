@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        form{
+            width: 23%;
+            font-size: 20px;
+            margin: auto;
+            box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+            padding: 20px;
+            height: 400px;
+        }
+        form>div{
+            margin-top: 30px;
+            text-align: center;
+            color: teal;
+        }
+        form input{
+            width: 80%;
+        }
+        p{
+            color: red;
+        }
+
+        form>div:nth-child(5)>input{
+            border: none;
+            color: white;
+            background-color: teal;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Payment Details</h1>
+    <form action="" id="form">
+        <div>
+            <label for="">Name</label><br><input id="name" type="text" placeholder="Enter Name on Card">
+        </div>
+        <div>
+            <label for="">Card Number</label><br><input id="card" type="number" placeholder="Enter 16 digit card number">
+        </div>
+        <div>
+            <label for="">Expiry Date</label><br><input id="expire" type="date">
+        </div>
+        <div>
+            <label for="">CVV</label><br><input id="cvv" type="number" placeholder="Enter your 3 digit CVV">
+        </div>
+        <div>
+            <input type="submit">
+        </div>
+        <div>
+            <p>Note: Please fill all the details correct</p>
+        </div>
+    </form>
+</body>
+</html>
+
+<script>
+    document.querySelector("form").addEventListener("submit", payment);
+
+    let paymentArr=JSON.parse(localStorage.getItem("payment"))||[];
+    function payment(e){
+        e.preventDefault();
+        let name = form.name.value
+        let card = form.card.value;
+        let expire = form.expire.value;
+        let cvv= form.cvv.value;
+        let obj={
+            name,
+            card,
+            expire,
+            cvv
+        }
+        paymentArr.push(obj);
+        localStorage.setItem("payment", JSON.stringify(paymentArr));
+        
+
+        paymentArr.forEach((elem,index)=>{
+            if(card===""||name==""||cvv==""||expire==""){
+                alert("Please Enter the card number");
+            } else if(cvv!=elem.cvv){
+                alert("Wrong CVV");
+            } else if(expire != elem.expire){
+                alert("Wrong expire date");
+            } else if(card != elem.card){
+                alert("Wrong Card Number");
+            }
+            else if(card === elem.card && cvv===elem.cvv && expire === elem.expire){
+                window.location.href="otp.html";
+            }
+        })
+    }
+</script>

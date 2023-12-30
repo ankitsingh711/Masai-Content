@@ -1,0 +1,37 @@
+[
+    {
+        "_id": 1,
+        "state": "NY",
+        "country": "USA"
+     },
+     
+     {
+        "_id": 2,
+        "state": "IL",
+        "country": "USA"
+     },
+     
+     {
+        "_id": 3,
+        "state": "CA",
+        "country": "USA"
+     },
+     
+     {
+        "_id": 4,
+        "state": "FL",
+        "country": "USA"
+     },
+     
+     {
+        "_id": 5,
+        "state": "MH",
+        "country": "India"
+     },
+     
+     {
+        "_id": 6,
+        "state": "DL",
+        "country": "India"
+     }
+]

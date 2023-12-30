@@ -1,0 +1,9 @@
+Example : 
+
+S.No - Name         Class     Subject    Roll.No  Marks 
+
+1.    Ankit Singh | 12th | Mathematics  |  45   |     98
+2.  Ashish Singh  | 11th | Hindi  |  33 | 78
+3. Shivangi | 12th | English | 72 | 99
+4. Anshu Singh | 10th | Computer | 7 | 87
+5. Om Singh | 11th | Social Science | 32 | 88

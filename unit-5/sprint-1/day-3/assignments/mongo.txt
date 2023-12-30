@@ -1,0 +1,72 @@
+============================================= Practice =======================================================================================
+
+   1. Fid the total Population of all the countries in eastern Europe Region
+   Ans. db.preu.aggregate([{$match:{Region:"EASTERN EUROPE"}},{$group:{_id:"$Region",tpop:{$sum:"$Population"}}}])
+
+   2.Find average Population per country in all regions?
+   Ans. db.preu.aggregate([{$group:{_id:"$Region",avgpop:{$avg:"$Population"}}}])
+
+   3. Find the Average Birthrate of entireWorld?
+   Ans. db.preu.aggregate([{$group:{_id:"$Birthrate",avgpop:{$avg:"$Birthrate"}}}])
+   db.preu.aggregate([{$group:{_id:"tpop",totpop:{$avg:"$Population"}}}])
+
+
+   4. Find all the countries, sort them by GDP ascending, Population desending,Population,take top 10 countries out?
+   Ans. db.preu.aggregate([{$group:{_id:"$Country"}},{ $sort : { GDP : 1 } },{ $sort : { Population : -1 } },{$limit:10}])
+   or ,  db.preu.aggregate([{ $sort : {" GDP ($ per capita)" : 1 , "Population"  : -1 } },{$limit:10}])
+
+   5.Find all the countries Birthrate lower than 20, group them by region,finf the lowest Birthrate region?
+   Ans. db.preu.aggregate([{$match:{"Birthrate":{$lt:20}}},{$group:{_id:"$Region",brate : { $min: "$Birthrate" }}},{$limit:1}])
+   or, 
+   db.preu.aggregate([{$match:{"Birthrate":{$lt:20}}},{$group:{_id:"$Region",brate : { $min: "$Birthrate" }}},{$sort:{br:1}},{$limit:1}])
+
+   or 
+
+   db.preu.aggregate([
+     {
+       $project:
+          {
+            "Region": 1,
+            Birthrate: 1,
+            brate: { $lt: [ "$Birthrate", 20 ] },
+            
+          }
+     },{$group:{_id:"$Region",lb:{$min:"$Birthrate"}}},{$limit:1}
+   ])
+
+   or 
+
+   db.preu.aggregate([
+     {
+       $project:
+          {
+            "Region": 1,
+            Birthrate: 1,
+            brate: { $lt: [ "$Birthrate", 20 ] },
+            
+          }
+     },{$group:{_id:"$Region",lb:{$min:"$Birthrate"}}},{$sort:{lb:1}},{$limit:1}
+   ])
+
+   6. Find the sum of Population according to Region?
+   Ans. db.preu.aggregate([{$group:{_id:"$Region",spop:{$sum: "$Population"}}}])
+
+   7. Find the Average Birthrate according to region Sort them by low birthrate first
+   Ans. db.preu.aggregate([{$group:{_id:"$Region",abrt:{ $avg: "$Birthrate" }}},{ $sort : {Birthrate : -1} }])
+
+   8. Sort All the countries by population desending , get 11 to 20 position countries from these?
+   Ans. db.preu.aggregate([{$sort:{Population:-1}},{ $skip : 10 },{$limit:10}])
+
+   9.Write an update query for find all the countries with phones per thousand greater than 400, set it to 1000?
+   Ans. db.preu.updateMany( { "PhonesPerThousand": { $gt: 400 } },{$set:{"PhonesPerThousand":1000}})
+
+   or 
+
+   db.preu.updateMany({PhonesPerThousand : { $gt: 4 } },
+      { $set: { "PhonesPerThousand" : 1000 } })
+
+   10. Write an Update Query for replace all the countries Climate to 0 ?
+   Ans.  db.preu.updateMany({},{$set:{"Climate":0}})
+
+
+   ==================================== DONE ===============================================================================================

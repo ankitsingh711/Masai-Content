@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo</title>
+    <style>
+        table{
+            width: 80%;
+            margin: auto;
+            text-align: center;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            margin-top: 20px;
+        }
+        thead{
+            background-color: teal;
+            color: white;
+            font-size: 30px;
+            font-weight: bold;
+        }
+        tbody>tr:nth-child(even){
+            background-color: teal;
+            color: white;
+        }
+        tbody{
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <table>
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>Title</td>
+                    <td>Status</td>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Append the table row -->
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+
+<script>
+    let url = "https://jsonplaceholder.typicode.com/todos";
+    fetch(url)
+    .then((res)=> res.json())
+    .then((data)=> displayTable(data))
+    .catch((err)=>console.log(err));
+
+    function displayTable(data){
+        data.forEach((elem,index)=>{
+            let tbody = document.querySelector("tbody");
+            let tr = document.createElement("tr");
+            let td1 = document.createElement("td");
+            td1.innerText = elem.id;
+            let td2 = document.createElement("td");
+            td2.innerText = elem.title;
+            let td3 = document.createElement("td");
+            td3.innerText = elem.completed;
+            tr.append(td1,td2,td3);
+            tbody.append(tr);
+        })
+    }
+</script>

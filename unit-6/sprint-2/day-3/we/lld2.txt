@@ -1,0 +1,74 @@
+-> Can we make a hospital management system ?
+
+Entities ->
+* Patients
+* Doctors
+* Nurse
+* Beds 
+* Rooms
+* Departments 
+* Equipments
+
+Problem Description ->
+
+- Design a parking lot
+* A parking lot is an aea for parking vhicles. Which can be paid or not, and means for certain types of vehicles.
+
+- A user needs to pay for parking
+- A user can have different types of vehicles
+- A vehicle canbe parked in different areas, which means there are diff types
+- Admin 
+- how many slots are left
+- how much money is made today
+
+## vehicle
+- Car
+- Bike
+- Truck
+
+# Parking lot
+- Number of parking slots 
+    - total number of floors, \* total slots per floor 
+- Floor 
+    - 1,2,3
+- Price 
+    - per hous
+- Type of slots
+    - cars 
+    - bikes
+    - trucks
+
+---> Users <----
+
+- Customer
+    - Request for a ticket
+    - Pay for a ticket
+    - Park a vehicle
+    - Cash, Card
+
+- Admin 
+    - Manage the system
+        - Alloting a slots
+        - More admin access
+        - Reports
+    - system
+    - Agent
+        - Park a vehicle
+        - Payments
+
+- How do a user interact with the system, step by step
+
+<-- User can interact with the parking lot --->
+
+- Customer can arrive at the parking lot
+- Choose the vehicle types
+- Retrieve info of parking slot which is allocated 
+    - Are slots available ?
+- Print Ticket can give to Customer
+- Park at slot
+- Goto Exit
+- Pay for time parked
+    - Cash, Card
+
+
+

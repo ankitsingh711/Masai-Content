@@ -1,0 +1,76 @@
+                                                            URL Shortner App
+
+1. Requirements:
+
+* Given a long URL, the services should generate a shorter and unique alias for it.
+* When the user hits a short link, the services should redirect to the original link.
+* Links will explain after a standard default time stamp. 
+* The system should be hgighly available. This is really important to consider because if the services goes down, all the URL redirection wll start failing.
+* URL redirection should happen in real-time with minimal latem=ncy.
+* Shortened links should not be predictable.
+
+2. Traffic
+
+Let's assume our services has 30M new URL shortenings request ( and associated about 1.8B )
+records.
+
+3. URL Length
+
+Let's consider we are using 7 characters to generate a short URL. These characters are a combination of 62 characters [A_Z, a-z, 0-9] something like http://ad.com/abXdef2
+
+4. Data Capacity Modeling
+
+Discuss the data capacity model to estimate the storage of the system.
+We need to understand how much data we might have to insert into our system. Think about the different columnd or attributes that will be stores in our database and calculate the storage of data for five years. Let's make the assumption given below for differeng attributes.
+
+-> Consider the average long URl size of 2KB ie for 2048 characters.
+-> Short URL size: 17 Bytes for 17 characters
+-> created_at- 7 bytes.
+-> Expiration_length_in_minutes- 7 bytes
+
+ The above calculation will give a total of 2.031KB per shortened URL entry in the database. If we calculte the total storage then for 30M
+ active users total size = 300000000 * 2.031 = 60780000 KB = 60.78GB
+  per month. In a year of 0.7248 TB and in 5 years 3.642 TB of data.
+
+  We need to think about the reads and writes that will happen on our system for this amount of data. This will decide what jind of database (RDBMS or NOSql) we need to use.
+
+  5. URL Shortening Logic ( Encoding )
+
+  To convert a long URl into a unique short URL we can use some hashing techniques like Base62 or MD5. We will discuss both approaches.
+  Base62 Encoding: Base62 encor allows us to use combination and numbers which containes A-Z, a-z, 0-9 total(26 + 26 + 10 = 62). So for 7 characters short URL, we can servr 62^7 approx 3500 billion URls which is quite enough in comparison to base10 (base10 only contains numbers 0-9 so you will get only 10M combinations). If we usew base62 making the assumption that tha service is generating 1000 tiny URls/sec then it will take 110 years to exhausr this 3500 billion combination. We can generate a random number for the given long URL and converty it to base62 and us the hash as a short URl id.
+
+  MD5 Encoding: MD5 also hives base62 output but rhe MD5 hash gives a lenghty output which is more than 7 characters. MD5 can create a lot of collison. For two or many different long URl inputs we may get the same uniqur id for a short URL and that could cause data corruption. So we need to perform check sto ensure that rthis unique id doesn;t exist in the database already.
+
+  6. Database 
+
+  We can use RDBMS which uses ACID properties but you will be facing the scalability issue with realtional database. Now i you think you can use sharding and resolves the scalability issue in RDBMS then that will increase the complexity of the system. There are 30M active users so there will be conversion and a lot of short URL resolution and redirections. Read and write will increase the complexity of the design when we want to have our system in a distributed manner. You may have to use consistent hashing to balance the traffics and DB queries in the case of RDBMS and which is a complicated process. So to handle this amount of huge traffic on our system relational databases are not fit and also it won’t be a good decision to scale the RDBMS. 
+
+Now let’s talk about NoSQL!
+
+The only problem with using the NoSQL database is its eventual consistency. We write something and it takes some time to replicate to a different node but our system needs high availability and NoSQL fits this requirement. NoSQL can easily handle the 30M of active users and it is easy to scale. We just need to keep adding the nodes when we want to expand the storage. 
+
+User Interface:
+The user interface allows users to enter a long URL and receive a shortened link. This could be a simple web form or a RESTful API.
+
+Application Server:
+The application server receives the long URL from the user interface and generates a unique, shorter alias or key for the URL. It then stores the alias and the original URL in a database. The application server also tracks click events on the shortened links.
+
+Database:
+The database stores the alias or key and the original URL. The database should be scalable to handle a large number of URLs and clicks. We can use NoSQL databases such as MongoDB or Cassandra, which can handle large amounts of data and can scale horizontally.
+
+Caching:
+Since reading from the database can be slow and resource-intensive, we can add a caching layer to speed up read operations. We can use in-memory caches like Redis or Memcached to store the most frequently accessed URLs.
+
+Redirection:
+When a user clicks on a shortened link, the application server looks up the original URL from the database using the alias or key. It then redirects the user to the original URL using HTTP 301 status code, which is a permanent redirect.
+
+Analytics:
+The application server should track click events on the shortened links and provide analytics to the user. This includes the number of clicks, the referrer, the browser, and the device used to access the link.
+
+Load Balancer:
+To handle a large number of requests, we can use a load balancer to distribute incoming traffic across multiple instances of the application server.
+
+Security:
+The service should be designed to prevent malicious users from generating short links to phishing or malware sites. It should also protect against DDoS attacks and brute force attacks. We can use firewalls, rate-limiting, and authentication mechanisms to ensure the security of the service.
+
+Overall, a URL shortening service is a simple but useful application that can be built using a variety of technologies and architectures. By following the above architecture, we can build a scalable, reliable, and secure URL shortening service.

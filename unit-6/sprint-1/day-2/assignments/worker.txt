@@ -1,0 +1,19 @@
+1. Write an SQL query to show the second highest salary from a Worker table ?
+Solution -> select *from worker 
+group by salary 
+order by  salary desc limit 1,1;
+
+2. Write an SQL query to determine the 5 highest salary from a Worker table ?
+Solution -> SELECT MAX(SALARY) FROM worker WHERE SALARY < (SELECT MAX(SALARY) FROM Employee);
+
+3. Write an SQL query to show only even rows from a Worker table ?
+Solution -> select * from worker where worker_id % 2 = 0;
+
+4. Write an SQL query to fetch the no. of workers for each department in descending order from the Worker table /
+Solution -> 
+
+5. Write an SQL query to fetch the list of employees with the same salary from the Worker table ?
+Solution -> SELECT salary, COUNT(salary)
+            FROM worker
+            GROUP BY department
+            HAVING COUNT(salary) > 1

@@ -1,0 +1,24 @@
+/* Write necessery css for navbar here  */
+
+body{
+    margin: 0px;
+    padding: 0px;
+  }
+  h1{
+    font-size: 25px;
+  }
+  h2{
+    text-align: center;
+    color: white;
+  }
+  #navbar{
+    background-color: teal;
+  }
+  #navbar>div{
+    display: flex;
+    justify-content: space-evenly;
+  }
+  #navbar>div>a{
+    text-decoration: none;
+    color: white;
+  }

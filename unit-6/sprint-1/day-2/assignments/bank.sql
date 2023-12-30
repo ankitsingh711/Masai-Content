@@ -1,0 +1,1 @@
+update deposit set amount = amount + (amount*0.2) where bname = "vrce" and cname = "anil";

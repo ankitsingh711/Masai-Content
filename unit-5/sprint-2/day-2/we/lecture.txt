@@ -1,0 +1,75 @@
+Authentication + Blacklisting and refresh tokens
+
+Authentication --> The process of identifying who the user is.
+
+Authoriztaion --> What access does the user have ?
+Or what permission does a user have 
+
+Authentication
+
+1. /signup or /register 
+
+/login
+they get back token 
+check token --> if token is verified then give access instead we will say pelase login first.
+
+Blacklisting :
+
+const blacklisted_token = [
+    Put the token in the blacklist.json if the user logged out
+]
+
+Refresh Tokens :
+
+JWT expires --> Expires tokens 
+
+Expiry Times --> In industries it generally expires in 7 days.
+
+/login --> gets token
+/reports --> given token 
+
+After 7 days 
+
+Token is expired --> Login --> Authentication is done and a new token is given back
+
+7 days, 
+
+normal token 
+
+-----------------------------
+/login 
+jwt normal token --> 7 days 
+jwt refresh token --> 28 days 
+
+After the user is logged in --> normal token and refresh token 
+
+Refresh token --> it allows the client to get a new normal token (when the prev token is expired without going to authentication process again);
+
+/reports --> normal token and refresh the token 
+
+/refresh --> Login again
+
+---> Advantages of refresh token:
+
+1. Improves user experience 
+2. Reduce the load on the server (for authentication);
+3. Improve security
+
+normal token - 7 days;
+backup --> refresh token --> 28 days 
+
+14 days --. 200 api request --> 200 times 
+
+wallet --> 1000, 500 rupess --> normal token --> backup --> refresh token 
+
+Hints :
+
+/login -->  generate tokens with 2 seperate keys, and give proper expiry time;
+
+GET /getnenormaltoken 
+
+
+
+
+
+

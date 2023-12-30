@@ -1,0 +1,67 @@
+<------ Low-Level-Design ------->
+
+* OOPS( Object Oriented Programming );
+
+<-> OOPS gives us classes:
+
+*** What is Classes ? 
+Ans: Tempelate of properties and methods, we can use this classs as many times as we can to create an unique objects.
+
+eg -> class Species {
+    constructor(name, species, voice){
+        this.name = name;
+        this.species = species;
+        this.voice = voice
+    }
+    makeVoice: () => {
+        this.name+"makes sound like"+this.voice;
+    }
+}
+
+*** What is constructor ?
+Ans: Constructor is the method in a classs which gets executed immediately whenever we create new instance from the respective class.
+
+*** What is Inheritance ?
+Ans: 
+
+class Vehicle {
+    constructor(model,brand){
+        this.model = model;
+        this.brand = brand;
+    }
+
+    applyGear = () => {
+        console.log(this.model, this.brand);
+    }
+}
+
+class Scooty extends Vehicle {
+    // So model and brand property will be here
+    number_of_tyres : 2
+}
+
+class Cars extends Vehicle {
+    num_of_tyres : 4,
+    applyGear = () => {
+        console.log("gear applied);
+    }
+}
+
+** Encapsulation : We define what to expose and what need not to expose then this concept comes into mind and it is called encapsulation.
+
+class User {
+    constructor(name, birthyear){
+        this..name = name;
+    }
+}
+
+** Polymorphism : 
+** Abstraction : 
+
+--> UML ( Unified Modified Language ) 
+
+DBs --> Tables --> Columns 
+
+(1) Flow Diagram : just the flow of how it is going to work.
+(2) Class Diagram : Structure wise diagram 
+(3) Activity Diagram : first of all we will define all the entities 

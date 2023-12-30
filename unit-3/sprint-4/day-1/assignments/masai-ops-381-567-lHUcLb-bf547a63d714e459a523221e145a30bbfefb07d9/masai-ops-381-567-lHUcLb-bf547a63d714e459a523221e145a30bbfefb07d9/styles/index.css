@@ -1,0 +1,32 @@
+.container{
+    width: 25%;
+    padding: 10px;
+    text-align: center;
+    background-color: 	rgb(249, 180, 53);
+    color: white;
+}
+
+.main{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+button{
+    border: none;
+    padding: 5px 10px;
+    background-color: black;
+    color: white;
+}
+
+h4~input{
+    width: 80%;
+    height: 2rem;
+    outline: none;
+}
+
+#main-section{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 10px;
+}

@@ -1,0 +1,48 @@
+<-------- Dunzo App System Design ----------->
+
+1. Requirements:
+    a. User should able to order food as well the products they want as dunzo sells online foods.
+    b. user should register herself / himself on the dunzo and also can login.
+    c. user should be able to rate to the particular food.
+    d. admin can also register and login 
+    e. admin can add foods and admin can delete the products as well
+    f. shops should able to register to the dunzo 
+
+2. Traffic:
+    a. let's say 30M users are registering themselves on the dunzo per month. So, 30M users for 12 months 30M * 12 = 360M users for 1 year.
+    b. let's say 1M products are been registered to the dunzo per month. So, 1m * 30 = 30m products per month and for 1 year 30m.
+    c. let's say 0.5M admin are registering to the dunzo then 0.5M * 30 = 15M users and for one year 15M * 12 = 180M
+
+    So, total data will be used --->
+    let' say the data of one user -> 2KB
+    Users --> 360M users * 2KB = 3600000000 * 2KB = 7200000000/1048 = About 7383882 MB
+    Admin ----> 30M * 2KB / 1048 MB;
+
+3. Database --> 
+We can use RDBMS as well as we can use NoSQL database to store the data of food we can use table structure like RDBMS and for stroing users we can use NoSQL. MongoDB is the one we can use to store the users. 
+
+We have to store the huge data so we have to choose the specific database what we needed in this case because we have to store the data of users as well the data of foods so we have to take care of that.
+Database is the most important thing in this because if teh user cancelled any order or if if they do not want this order then we have to take care for that.
+
+4. Redis for caching -> 
+    We have to use redis for caching the data because we have a huge collection of data and we do not want the laod on the server and the database. So, we have to usew caching and we have used redis for that case.
+
+5. Different APIs we have to use :
+     Endpoints : 
+        /users
+            /register
+            /login
+            /logout
+        /foods
+            /orderfood
+            /addfood
+        /admin
+            /register
+            /login
+            /addfood
+            /deletefood
+
+
+GitHub Repo Link --> https://github.com/masai-course/ankit_singh_fp07_179/blob/master/unit-6/sprint-3/evaluation/dunzo.txt
+Diagrams Created ---> https://drive.google.com/file/d/16kblDtN4zlcdnw4w81J2mDXegdQSPDoK/view?usp=sharing
+

@@ -1,0 +1,6 @@
+
+ Routes:/addstudent Methds:GET"utf-8
+ Routes:/addstudent Methds:POST"utf-8
+ Routes:/addstudent Methds:POST"utf-8
+ Routes:/addstudent Methds:POST"utf-8
+ Routes:/ Methds:GET"utf-8

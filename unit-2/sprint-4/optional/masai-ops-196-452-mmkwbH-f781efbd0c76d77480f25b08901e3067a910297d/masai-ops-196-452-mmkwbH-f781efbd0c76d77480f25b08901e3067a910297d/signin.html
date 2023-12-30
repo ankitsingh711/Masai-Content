@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in Page</title>
+    <style>
+      body{
+        margin: 0px;
+        padding: 0px;
+      }
+      .nav{
+        width: 100%;
+        background-color: black;
+        color: white;
+        text-align: center;
+        padding: 10px;
+      }
+      .nav>a{
+        text-decoration: none;
+        margin: 100px;
+        color: white;
+        font-size: 20px;
+        font-family: 'Times New Roman', Times, serif;
+      }
+
+      #signin{
+        width: 30%;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        padding: 20px;
+        margin: auto;
+        text-align: center;
+        margin-top: 20px;
+        height: 60vh;
+      }
+      #signin input{
+        width: 80%;
+        height: 2rem;
+      }
+      #submit{
+        border: none;
+        padding: 8px;
+        background-color: black;
+        color: white;
+      }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="./index.html">Signup</a>
+        <a href="./signin.html">Signin</a>
+      </div>
+      <div id="signin">
+        <h1>Please Enter Your Details</h1>
+        <form>
+          <input type="email" id="email" placeholder="Type your Email..."><br><br>
+          <input type="password"  id="password" placeholder="Type your password..."><br><br>
+          <input id="submit" type="submit" value="Signin" />
+        </form>
+      </div>
+</body>
+<script>
+  let users = JSON.parse(localStorage.getItem("account-data"));
+
+  let form = document.querySelector("form");
+  form.addEventListener("submit", signin);
+
+  function signin(e){
+    e.preventDefault();
+    let email = document.querySelector("#email").value;
+    let pass = document.querySelector("#password").value;
+    let userDetail;
+    if(email===""||pass===""){
+      alert("All fields are mandatory");
+    }else{
+      users.forEach((elem)=>{
+        if(email === elem.email){
+          userDetail = elem;
+        }else{
+          userDetail=null;
+        }
+      })
+    }
+
+    if(userDetail===null){
+      alert("User not found")
+      return;
+    }
+    if(pass !== userDetail.pass){
+      alert("Password do not match");
+    }else if(userDetail.pass === pass){
+      alert("Signin Success");
+    }
+  }
+</script>
+</html>

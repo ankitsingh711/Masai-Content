@@ -1,0 +1,77 @@
+1. Insert at least 10 douments into the collection, with each document containing at least (name, age and location) fields.
+
+
+[
+  {
+    name: 'ankit singh',
+    age: 18,
+    location: 'patna',
+    marks: [34,23,56,24,98]
+  },
+  {
+    name: 'aman',
+    age: 22,
+    location: 'gujarat',
+    marks: [67,23,87,09,76]
+  },
+  {
+    name: 'neha',
+    age: 23,
+    location: 'varanasi',
+    marks: [76,87,90,78,65]
+  },
+  {
+    name: 'anshu',
+    age: 21,
+    location: 'ballia',
+    marks: [67,53,98,78,65]
+  },
+  {
+    name: 'amit',
+    age: 22,
+    location: 'ballia',
+    marks: [34,84,86,19,87]
+  },
+  {
+    name: 'ishan',
+    age: 19,
+    location: 'jharkhand',
+    marks: [00,87,54,68,45]
+  },
+  {
+    name: 'anurag rai',
+    age: 22,
+    location: 'buxar',
+    marks: [46,23,89,63,73]
+  },
+  {
+    name: 'arman',
+    age: 23,
+    location: 'noida',
+    marks: [64,80,3,76,00]
+  }
+]
+
+2. Create a compound index on the collection that includes at least 2 fields (e.g. age and location).
+
+Solutions: db.indexing.createIndex({"name":1,"age":-1});
+
+3. Use the explain() function to analyze the performance of a query that uses the compound index.
+
+Solutions: db.indexing.explain()
+
+4. Create a single field index on a field that is not included in the compound index.
+
+Solution: db.indexing.find({age:1});
+
+5. Use the explain() function to compare the performance of a query using the single field index to the performance of a query using the compound index.
+
+Solution: db.indexing.createIndex({autor_name: 1});
+
+6. Drop the single field index and create a multi-key index on an array field in one of the documents.
+
+Solution: 
+
+7. Use the explain() function to analyze the performance of a query that uses the multi-key index.
+
+Soultion: 

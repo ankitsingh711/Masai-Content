@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Even Odd</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+        let promise = new Promise((res,rej)=>{
+            let x = 21;
+            res(x);
+            if(res%2===0){
+                res("The issue is resolved");
+            }else{
+                rej("Error Occured");
+            }
+        });
+        promise
+        .then((val)=> {return val+20})
+        .then((val)=> {return val+120})
+        .then((msg)=> console.log(msg))
+        .catch((msg)=> console.log(msg));
+</script>

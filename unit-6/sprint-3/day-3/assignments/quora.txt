@@ -1,0 +1,9 @@
+1. Requirements 
+    We will get some question and user also can answer those questions and post the answers
+
+2. Traffic 
+    Let's say service has 10m new url shortening per month and let's assume we store every url shortening request for 5 years
+
+    so, 10 million * 5 years * 12 months = 1.8B
+
+3. 

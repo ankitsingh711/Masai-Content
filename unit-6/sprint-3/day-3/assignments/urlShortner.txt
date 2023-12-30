@@ -1,0 +1,80 @@
+<----------------  URL Shortener -------------->
+
+1. Requirements: 
+     Long Url ---> Short Url ----> When user hits the link the user should redirect to the same link ---> links will expire after a certain amount of time --> the system should be highly available ---> url-redirection should happen in real time ----> shorten link should not be predictable 
+
+2. Traffic 
+    Let's say service has 10m new url shortening per month and let's assume we store every url shortening request for 5 years
+
+    so, 10 million * 5 years * 12 months = 1.8B
+
+3. URL Length 
+    Let's consider we are using 6 characters to generate a short url. These characters sre are a combination of 62 charactewrs are a combination of 62 characters [A-Z, a-z, 0-9] something like http://ad.com/ajaskD
+
+4. Data Capacity Modeling 
+    * Consider the average long URL size of 2KB i.e for 2048 characters.
+    * created_at-7 bytes
+    * expiration_length-in_minutes=7 bytes
+
+2.031 KB / shorten URL 
+For 10 million active users -> 100000000 * 2.031 = 203100000 KB = 50.78 GB 
+In one year the data will be -> 0.678 TB 
+
+We need to think about the reads and writes happend for the system for this amount of data. It will decide what type of data should we use. Is it RDBMS or NoSQL, we need to use.
+
+5. URL shortening logic:
+    To short the url we can use two methods to do so:
+        1. Base62 Encoding -> Base62 encoder allows us to use the combination of characters and numbers which contain A-Z, a-z, 0-9 total( 26+26+10 = 62 ). So for the 7 characters short URL, we can serve 62^7 approx 3500 billion URLs which is quite enough in comparison to base 10 ( base10 only contains numbrs 0-9) so you will get only 10M combinations.) If we use base62 making the assumption that the service is generating 1000 tiny urls/ sec then it will take 110 years to exhaust this 3500 billion combination,
+
+        2. MD5 Encoding -> MD5 also gives base62 output the MD5 has gives a lengthy output which is more than 7 characters. MD5 hash geerates 128-bit long output so out of 128 bits we will take 43 bits to generate a tiny URL inputs we may get the same input we may get the same unique id for a short URL and rgar could cause data corrucption. So we need to pwerform some checks to ensure that this  unique id doesn't exist in the database already.
+
+6. Database :
+    We can use RDBMS which uses ACID properties but you will be facing the scalability issue with relational database. Now if you think you can use sharding and resolve the scalability issue in RDMBS then that will increase the complexity of the system. There are 30M users so there will be conversion and a lot of short URL resolution and redirections. Read and write will be heavily for these 30M users so scaling the RDBMS using shard will increase the complexity of the design went to have our system in a distributed manner. You may have to use consistent hashing to balance the traffic and DB  queries in the case 
+
+<-----------  Technique 1 ----------->   
+
+Let’s discuss the mapping of a long URL into a short URL in our database. Assume we generate the Tiny URL using base62 encoding then we need to perform the steps given below… 
+ 
+
+The tiny URL should be unique so firstly check the existence of this tiny URL in the database (doing get(tiny) on DB). If it’s already present there for some other long URL then generate a new short URL.
+If the short URL isn’t present in DB then put the long URL and TinyURL in DB (put(TinyURL, long URL)).
+This technique works with one server very well but if there will be multiple servers then this technique will create a race condition. When multiple servers will work together, there will be a possibility that they all can generate the same unique id or same tiny URL for different long URLs, and even after checking the database, they will be allowed to insert the same tiny URLs simultaneously (which is the same for different long URLs) in the database and this may end up corrupting the data. 
+We can use putIfAbsent(TinyURL, long URL) or INSERT-IF-NOT-EXIST condition while inserting the tiny URL but this requires support from DB which is available in RDBMS but not in NoSQL. Data is eventual consistent in NoSQL so putIfAbsent feature support might not be available in the NoSQL database. 
+
+<----------- Technique - 2 -------------> 
+
+Encode the long URL using the MD5 approach and take only the first 7 chars to generate TinyURL.
+The first 7 characters could be the same for different long URLs so check the DB (as we have discussed in technique 1) to verify that TinyURL is not used already
+Advantages: This approach saves some space in the database but how? If two users want to generate a tiny URL for the same long URL then the first technique will generate two random numbers and it requires two rows in the database but in the second technique, both the longer URL will have the same MD5 so it will have the same first 43 bits which means we will get some deduping and we will end up with saving some space since we only need to store one row instead of two rows in the database.
+MD5 saves some space in the database for the same URLs but for two long different URLs again we will face the same problem as we have discussed in technique 1. We can use putIfAbsent but NoSQL doesn’t support this feature. So let’s move to the third technique to solve this problem.
+
+<-------- Technique - 3 ( Counter Approach ) ------------>
+
+Using a counter is a good decision for a scalable solution because counters always get incremented so we can get a new value for every new request. 
+
+Single server approach:  
+
+A single host or server (say database) will be responsible for maintaining the counter.
+When the worker host receives a request it talks to the counter host, which returns a unique number and increments the counter. When the next request comes the counter host again returns the unique number and this goes on.
+Every worker host gets a unique number which is used to generate TinyURL.
+Problem: If the counter host goes down for some time then it will create a problem, also if the number of requests will be high then the counter host might not be able to handle the load. So challenges are a Single point of failure and a single point of bottleneck. 
+And what if there are multiple servers? 
+
+You can’t maintain a single counter and returns the output to all the servers. To solve this problem we can use multiple internal counters for multiple servers which use different counter ranges. For example server 1 ranges from 1 to 1M, server 2 ranges from 1M to 10M, and so on. But again we will face a problem i.e. if one of the counters goes down then for another server it will be difficult to get the range of the failure counter and maintain it again. Also if one counter reaches its maximum limit then resetting the counter will be difficult because there is no single host available for coordination among all these multiple servers. The architecture will be messed up since we don’t know which server is the master or which one is a slave and which one is responsible for coordination and synchronization. 
+
+Solution: To solve this problem we can use a distributed service Zookeeper to manage all these tedious tasks and to solve the various challenges of a distributed system like a race condition, deadlock, or particle failure of data. Zookeeper is basically a distributed coordination service that manages a large set of hosts. It keeps track of all the things such as the naming of the servers, active servers, dead servers, and configuration information of all the hosts. It provides coordination and maintains the synchronization between the multiple servers. 
+Let’s discuss how to maintain a counter for distributed hosts using Zookeeper. 
+ 
+
+Zookeeper-High-Level-Architecture
+
+From 3.5 trillion combinations take 1st billion combinations.
+In Zookeeper maintain the range and divide the 1st billion into 1000 ranges of 1 million each i.e. range 1->(1 – 1,000,000), range 2->(1,000,001 – 2,000,000)…. range 1000->(999,000,001 – 1,000,000,000)
+When servers will be added these servers will ask for the unused range from Zookeepers. Suppose the W1 server is assigned range 1, now W1 will generate the tiny URL incrementing the counter and using the encoding technique. Every time it will be a unique number so there is no possibility of collision and also there is no need to keep checking the DB to ensure that the URL already exists or not. We can directly insert the mapping of a long URL and short URL into the DB.
+In the worst case, if one of the servers goes down then we will only lose a million combinations in Zookeeper (which will be unused and we can’t reuse it as well) but since we have 3.5 trillion combinations we should not worry about losing this combination.
+If one of the servers will reach its maximum range or limit then again it can take a new fresh range from Zookeeper.
+The addition of a new server is also easy. Zookeeper will assign an unused counter range to this new server.
+We will take the 2nd billion when the 1st billion is exhausted to continue the process.
+
+
+Video URL Recording ---> https://drive.google.com/file/d/1gI1CSSZxhyuC6ZZkEGOabPfEHLBjGRFe/view?usp=sharing
